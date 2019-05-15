@@ -1,6 +1,8 @@
 $(document).ready(function() {
-   $('section:not(.first-section)').addClass('hidden');
-   $('.advantages__item').addClass('hidden');
+   if ($(window).width() > 1024) {
+      $('section:not(.first-section)').addClass('hidden');
+      $('.advantages__item').addClass('hidden');
+  }  
    $(".wrapper").onepage_scroll ({
       sectionContainer: "section",                                                    
       animationTime: 1000,             

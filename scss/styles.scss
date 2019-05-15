@@ -1,0 +1,366 @@
+//resolutions
+$laptop: 1366px;
+$tablets: 1024px;
+$min-tablets: 768px;
+$phones: 480px;
+//config
+@mixin laptop {
+    @media screen and (max-width: $laptop) {
+        @content;
+    }
+}
+@mixin tablets {
+    @media screen and (max-width: $tablets) {
+        @content;
+    }
+}
+@mixin min-tablets {
+    @media screen and (max-width: $min-tablets) {
+        @content;
+    }
+}
+@mixin phones {
+    @media screen and (max-width: $phones) {
+        @content;
+    }
+}
+body {
+    font-size: 16px;
+    color: #756b80;
+}
+.section {
+    &--advantages {
+        background-color: #f0fdff;
+        @include phones {
+            background-color: #fff;
+        }
+    }
+}
+.visually-impaired {
+    color: #fff;
+    font-size: 14px;
+    @include phones {
+        background-color: rgba(0,0,0,0.5);
+    }
+}
+.contacts {
+    &__slogan {
+        font-size: 24px;
+        color: #fff;
+        font-family: Circe-Light;
+        @include laptop {
+            font-size: 16px;
+        }
+        @include min-tablets {
+            font-size: 14px;
+        }
+    }
+    &__phone {
+        color: #fff;
+        span {
+            color: #fff;
+            &:first-child {
+                font-size: 18px;
+            }
+        }
+        a {
+            font-size: 30px;
+            font-family: Circe-Bold;
+            color: #fff;
+            @include laptop {
+                font-size: 20px;
+            }
+        }
+    }
+    hr {
+        border: 1px solid #fff;
+    }
+    &__address {
+        color: #fff;
+        @include laptop {
+            font-size: 14px;
+        }
+        @include min-tablets {
+            font-size: 12px;
+        }
+    }
+    &--color {
+        .contacts__address, .contacts__phone a,
+        .contacts__phone span,.contacts__slogan {
+            color: #756b80;
+        }
+        hr {
+            border: 1px solid #756b80;
+        }
+    }
+}
+.menu-link {
+    span {
+        color: #fff;
+        font-size: 18px;
+    }
+    &--color {
+        span {
+            color: #756b80;
+        }
+        .nav-icon-2 span{
+            background-color:#756b80;
+        }
+    }
+}
+.intro {
+    color: #fff;
+    &__title {
+        font-family: Circe-ExtraLight;
+        font-size: 44px;
+        @include laptop {
+            font-size: 32px;
+        }
+        @include min-tablets {
+            font-size: 26px;
+        }
+        @include phones {
+            font-family: Circe;
+        }
+    }
+    p {
+        font-size: 24px;
+        @include laptop {
+            font-size: 20px;
+        }
+        @include min-tablets {
+            font-size: 16px;
+        }
+    }
+    &__list {
+        @include laptop {
+            font-size: 14px;
+        }
+        @include min-tablets {
+            font-size: 12px;
+        }
+    }
+    &__item {
+        color: #03b5c2;
+        span {
+            color: #fff;
+        }
+    }
+}
+.divide-line {
+    border: 2px solid #03b5c2;
+    &--gradient {
+        border: 2px solid transparent;
+        border-image: linear-gradient(#03c4bd , #04a5c8);
+        -moz-border-image: -moz-linear-gradient(#03c4bd , #04a5c8);
+        -webkit-border-image: -webkit-linear-gradient(#03c4bd , #04a5c8);
+    }
+}
+.btn {
+    background-color: #03b5c2;
+    color: #fff;
+    &:hover {
+        background-color: darken(#03b5c2, 5);
+    }
+    &--inverse {
+        color: #776d82;
+        background-color: #fff;
+        &:hover {
+            background-color: #03b5c2;
+            color: #fff;
+        }
+    }
+    &--services {
+        @include phones {
+            background-color: #f0fdff;
+            color: #776d82;
+            &:hover {
+                background-color: darken(#f0fdff, 6);
+            }
+        }
+    }
+}
+.notice {
+    p {
+        color: rgba(255,255,255,0.25);
+        font-size: 18px;
+        @include laptop {
+            font-size: 14px;
+        }
+        @include min-tablets {
+            font-size: 10px;
+        }
+    }
+}
+.scroll {
+    span {
+        color: rgba(255,255,255,0.5);
+        font-size: 14px;
+        @include laptop {
+            font-size: 12px;
+        }
+        @include min-tablets {
+            font-size: 10px;
+        }
+    }
+}
+.section-title {
+    font-size: 30px;
+    @include laptop {
+        font-size: 24px;
+    }
+    @include tablets {
+        font-size: 18px;
+    }
+}
+.text-block {
+    p {
+        font-family: Circe-Bold;
+        @include laptop {
+            font-size: 14px;
+            font-family: Circe;
+        }
+        @include tablets {
+            font-size: 12px;
+        }
+    }
+}
+.advantages {
+    @include phones {
+        background-image: linear-gradient(#03c4bd , #04a5c8);
+    }
+    .text-block {
+        @include phones {
+            color: #fff;
+            hr {
+                border: 1px solid #fff;
+            }
+        }
+    }
+    &__icon {
+        border-left: 2px solid transparent;
+        border-image: linear-gradient(#03c4bd , #04a5c8);
+        -moz-border-image: -moz-linear-gradient(#03c4bd , #04a5c8);
+        -webkit-border-image: -webkit-linear-gradient(#03c4bd , #04a5c8);
+    }
+    &__desc {
+        font-size: 18px;
+        font-family: Circe-Bold;
+        @include laptop {
+            font-size: 14px;
+            font-family: Circe;
+        }
+        @include tablets {
+            font-size: 12px;
+        }
+    }
+}
+.onepage-pagination li a:before {
+    border: 1px solid #fff;
+}
+.onepage-pagination li a.active:before {
+    background: #fff;
+    border: 1px solid #fff;
+}
+.services {
+    &__item {
+        background-color: #f0fdff;
+        &:hover {
+            .services__title {
+                color: #fff;
+            }
+            .divide-line--gradient {
+                border-image: linear-gradient(#fff);
+                -moz-border-image: -moz-linear-gradient(#fff , #fff);
+                -webkit-border-image: -webkit-linear-gradient(#fff , #fff);
+                border-image-slice: 1;
+            }
+        }
+    }
+    &__title {
+        color: #756b80;
+        font-size: 26px;
+        font-family: Circe-Bold;
+        @media screen and (max-width: 1600px) {
+
+            font-size: 20px;
+        }
+        @include laptop {
+            font-size: 16px;
+        }
+        @include min-tablets {
+            font-size: 14px;
+        }
+        span {
+            font-size: 20px;
+            @include laptop {
+                font-size: 12px;
+            }
+        }
+    }
+}
+.specialists {
+    &__item {
+        color: #fff;
+        &:last-child {
+            color: #756b80;
+        }
+    }
+    &__more {
+        font-size: 14px;
+        @include min-tablets {
+            font-size: 12px;
+        }
+    }
+    &__hidden-desc {
+        background-color: rgba(1,143,167,0.5);
+    }
+    &__name {
+        font-size: 24px;
+        @include laptop {
+            font-size: 18px;
+        }
+        @include min-tablets {
+            font-size: 14px;
+        }
+    }
+    &__desc {
+        font-size: 11px;
+    }
+}
+.instagram-link {
+    color: #756b80;
+    font-size: 24px;
+    font-family: Circe-Bold;
+}
+.contacts-form {
+    background-color: #fff;
+    &__notice {
+        font-size: 10px;
+    }
+}
+.creator {
+    font-size: 12px;
+    a {
+        color: #756b80;
+    }
+}
+.footer {
+    &__bottom {
+        background-color: #fff;
+    }
+}
+.footer-menu {
+    &__link {
+        color: #776d82;
+    }
+}
+.menu {
+    &__link {
+        color: #756b80;
+        font-size: 50px;
+        @include laptop {
+            font-size: 26px;
+        }
+    }
+}

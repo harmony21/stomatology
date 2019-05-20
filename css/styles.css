@@ -195,11 +195,11 @@ body {
       font-size: 12px; } }
 
 .onepage-pagination li a:before {
-  border: 1px solid #fff; }
+  border: 1px solid #03c4bd; }
 
 .onepage-pagination li a.active:before {
-  background: #fff;
-  border: 1px solid #fff; }
+  background: #03c4bd;
+  border: 1px solid #03c4bd; }
 
 .services__item {
   background-color: #f0fdff; }
@@ -255,6 +255,16 @@ body {
 
 .specialists__desc {
   font-size: 11px; }
+
+@media screen and (max-width: 1366px) {
+  .reviews p {
+    font-size: 14px; } }
+
+.reviews__name p {
+  font-size: 24px; }
+  @media screen and (max-width: 1366px) {
+    .reviews__name p {
+      font-size: 18px; } }
 
 .instagram-link {
   color: #756b80;

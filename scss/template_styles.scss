@@ -566,11 +566,33 @@ a {
             background-position: 0 -38px;
         }
     }
+    &.arrow-next-color-reviews {
+        position: absolute;
+        top: 20px;
+        right: -100px;
+        @media screen and (max-width: 1600px) {
+            right: -70px;
+        }
+        @include tablets {
+            display: none;
+        }
+    }
+    &.arrow-prev-color-reviews {
+        position: absolute;
+        top: 20px;
+        left: -100px;
+        @media screen and (max-width: 1600px) {
+            left: -70px;
+        }
+        @include tablets {
+            display: none;
+        }
+    }
 }
 //Стилизация one-pagination
 .onepage-pagination li a:before {
     width: 30px;
-    height: 7px;
+    height: 1px;
     right: 0;
     margin-top: -2px;
     background: none;
@@ -578,7 +600,7 @@ a {
 }
 .onepage-pagination li a.active:before {
     width: 50px;
-    height: 7px;
+    height: 1px;
     left: -28px;
 }
 .onepage-pagination {
@@ -899,6 +921,21 @@ a {
         }
     }
 }
+//Отзывы и инстаграм
+.reviews {
+    position: relative;
+    p {
+        margin: 10px 0;
+    }
+    &__name {
+        display: flex;
+        align-items: center;
+        p {
+            text-transform: uppercase;
+            margin-left: 15px;
+        }
+    }
+}
 .instagram-link {
     display: flex;
     align-items: center;
@@ -913,9 +950,6 @@ a {
 .instagram {
     display: flex;
     justify-content: space-between;
-    @include laptop {
-        height: 20%;
-    }
     @include phones {
         display: none;
     }
@@ -926,16 +960,17 @@ a {
         background-size: cover;
         background-repeat: no-repeat;
         @media screen and (max-width: 1600px) {
-            height: 150px;
             align-items: flex-start;
             justify-content: center;
             overflow: hidden;
         }
         @include laptop {
             align-items: center;
+            height: 200px;
         }
     }
 }
+//Контакты
 .map {
     width: 100%;
     height: 100vh;
@@ -950,7 +985,7 @@ a {
     z-index: 10;
     left: 270px;
     width: 692px;
-    padding: 30px 20px 40px 30px;
+    padding: 107px 20px 50px 107px;
     box-sizing: border-box;
     @media screen and (max-width: 1600px) {
         left: 45px;
@@ -994,8 +1029,10 @@ a {
             text-align: center;
         }
         img {
-            width: 120px;
             @include laptop {
+                width: 120px;
+            }
+            @include tablets {
                 width: 80px;
             }
         }

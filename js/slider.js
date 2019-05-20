@@ -85,4 +85,20 @@ $(document).ready(function() {
       slider3.goToNextSlide();
     });
 
+    //слайдер отзывов
+    var slider4 = $("#lightSlider4");
+    slider4.lightSlider({
+      item: 1,
+      speed: 600,
+      pager: false,
+      enableDrag: true,
+      adaptiveHeight: true,
+    }); 
+    $('.arrow-prev-color-reviews').click(function(e) {
+      slider4.goToPrevSlide();
+    });
+    $('.arrow-next-color-reviews').click(function(e) {
+      slider4.goToNextSlide();
+    });
+
 });

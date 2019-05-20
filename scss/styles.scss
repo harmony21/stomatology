@@ -256,11 +256,11 @@ body {
     }
 }
 .onepage-pagination li a:before {
-    border: 1px solid #fff;
+    border: 1px solid #03c4bd;
 }
 .onepage-pagination li a.active:before {
-    background: #fff;
-    border: 1px solid #fff;
+    background: #03c4bd;
+    border: 1px solid #03c4bd;
 }
 .services {
     &__item {
@@ -326,6 +326,21 @@ body {
     }
     &__desc {
         font-size: 11px;
+    }
+}
+.reviews {
+    p {
+        @include laptop {
+            font-size: 14px;
+        }
+    }
+    &__name {
+        p {
+            font-size: 24px;
+            @include laptop {
+                font-size: 18px;
+            }
+        }
     }
 }
 .instagram-link {

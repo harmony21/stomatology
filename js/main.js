@@ -1,7 +1,5 @@
-var copyright = $('.contacts-form__notice'),
-        creator = $('.creator');
-
 $(document).ready(function() {
+  
     //подгрузка нужного контента в секции "Команда"
     if ($(window).width() <= 480) {
         $('#specialists-mobile').load("specialists-mobile.html");
@@ -10,6 +8,32 @@ $(document).ready(function() {
     {
         $('#specialists-desktop').load("specialists-desktop.html");
     }  
+
+    if ($(window).width() <= 480) {
+        $('.menu-link').fancybox({
+            afterLoad : function(){
+                $(".fancybox-container").addClass('fadeInRight animated');
+            },
+            beforeClose : function(){
+                $(".fancybox-container").addClass('fadeOutLeft animated');
+            }   
+        });
+    }
+
+    //Бесплатная консультация
+    $('.btn-consultation').fancybox({
+        autoFocus: false
+    });
+    
+    //Записаться на прием
+    $('.btn-sign-up').fancybox({
+        autoFocus: false
+    });
+
+    //Рассчитать стоимость
+    $('.btn-calculate-price').fancybox({
+        autoFocus: false
+    });
 
     //закрытие меню
     $('.menu-link').fancybox({
@@ -24,38 +48,27 @@ $(document).ready(function() {
         $.fancybox.close();
     });
 
-    //удаление/присвоение классов для стрелок в секции слайдера
-    if ($(window).width() <= 480) {
-        $('.slider').find('.arrow-prev').addClass('arrow-prev-color arrow-prev-color-actions').removeClass('arrow-prev');
-        $('.slider').find('.arrow-next').addClass('arrow-next-color arrow-next-color-actions').removeClass('arrow-next');
+    //подгрузка нужного контента на странице "Услуги"
+    if ($(window).width() <= 550) {
+        $('#service-mobile').load("service-mobile.html");
+    }    
+    else 
+    {
+        $('#service-desktop').load("service-desktop.html");
     }  
 
-    //перемещение копирайта из контактов в футер
+    //подгрузка нужного контента на странице "Врачи подробно (слайдер команды)"
     if ($(window).width() <= 480) {
-        $('.footer__bottom').append(copyright);
-        $('.footer__bottom').append(creator);
-    }  
-});
-
-
-$(window).resize(function() {
-    //перемещение копирайта из футера в контакты и наоборот
-    if ($(window).width() > 480) {
-        $('.contacts-form__wrap').append(copyright);
-        $('.contacts-form__wrap').append(creator);
-    }  
-    if ($(window).width() <= 480) {
-        $('.footer__bottom').append(copyright);
-        $('.footer__bottom').append(creator);
+        $('#specialist-more-mobile').load("specialist-more-mobile.html");
+    }    
+    else 
+    {
+        $('#specialist-more-desktop').load("specialist-more-desktop.html");
     }  
 
-    //удаление/присвоение классов для стрелок в секции слайдера
-    if ($(window).width() > 480) {
-        $('.slider').find('.arrow-prev-color').addClass('arrow-prev').removeClass('arrow-prev-color');
-        $('.slider').find('.arrow-next-color').addClass('arrow-next').removeClass('arrow-next-color');
-    }  
+    //замена главной картинки на странице подробной статьи
     if ($(window).width() <= 480) {
-        $('.slider').find('.arrow-prev').addClass('arrow-prev-color').removeClass('arrow-prev');
-        $('.slider').find('.arrow-next').addClass('arrow-next-color').removeClass('arrow-next');
-    }  
+        var img = $('.article-intro__background').find('img');
+        img.attr('src', 'temp/article1.png');
+    } 
 });

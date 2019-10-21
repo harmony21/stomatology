@@ -1,23 +1,23 @@
 //fonts
 @font-face {
     font-family: Circe;
-    src: url('../fonts/Circe.eot'),
-    url('../fonts/Circe-Regular.woff');
+    src: url('fonts/Circe.eot'),
+    url('fonts/Circe-Regular.woff');
 }
 @font-face {
     font-family: Circe-Bold;
-    src: url('../fonts/Circe-Bold.eot'),
-    url('../fonts/Circe-Bold.woff');
+    src: url('fonts/Circe-Bold.eot'),
+    url('fonts/Circe-Bold.woff');
 }
 @font-face {
     font-family: Circe-Light;
-    src: url('../fonts/Circe-Light.eot'),
+    src: url('fonts/Circe-Light.eot'),
     url('../fonts/Circe-Light.woff');
 }
 @font-face {
     font-family: Circe-ExtraLight;
-    src: url('../fonts/Circe-ExtraLight.eot'),
-    url('../fonts/Circe-ExtraLight.woff');
+    src: url('fonts/Circe-ExtraLight.eot'),
+    url('fonts/Circe-ExtraLight.woff');
 }
 //resolutions
 $laptop: 1366px;
@@ -61,6 +61,9 @@ a {
         cursor: pointer;
     }
 }
+img {
+    border: none;
+}
 .wrapper {
     width: 100%;
     display: flex;
@@ -96,6 +99,17 @@ a {
             @include min-tablets {
                 display: none;
             }
+            &--color {
+                .contacts__phone {
+                    flex-direction: row;
+                }
+            }
+        }
+    }
+    &.mobile-visible {
+        display: none;
+        @include phones {
+            display: block;
         }
     }
 }
@@ -107,10 +121,10 @@ a {
     box-sizing: border-box;
     position: relative;
     @media screen and (max-width: 1600px) {
-        padding: 60px 140px 30px 100px;
+        padding: 60px 140px 30px 80px;
     }
     @include laptop {
-        padding: 25px 140px 25px 100px;
+        padding: 25px 140px 25px 80px;
     }
     @include tablets {
         padding: 25px 70px 25px 30px;
@@ -118,24 +132,51 @@ a {
     @include phones {
         padding: 25px 15px 25px 15px;
     }
+    &.mobile-visible {
+        display: none;
+        @include phones {
+            display: block;
+            padding-top: 15px !important;
+            .divide-line {
+                display: block;
+            }
+        }
+    }
+    &.mobile-color {
+        @include phones {
+            background-color: #f0fdff;
+            margin-top: 80px;
+        }
+    }
     
 }
 #header {
     display: flex;
     justify-content: space-between;
+}
+.header {
     @include phones {
         margin-top: 50px;
     }
-}
-.header {
     &__left {
         .logo {
-            img {
+            &__icon {
+                width: 180px;
+                height: 222px;
+                background: url('images/logo.png') no-repeat;
+                background-size: contain;
                 @media screen and (max-width: 1600px) {
                     width: 120px;
+                    height: 150px;
                 }
                 @include laptop {
                     width: 90px;
+                }
+                @include phones {
+                    width: 140px;
+                    height: 81px;
+                    background: url('images/logo-horizontal.png') center center no-repeat;
+                    background-size: contain;
                 }
             }
         }
@@ -149,15 +190,50 @@ a {
                     display: none;
                 }
                 &__phone {
-                    flex-direction: column;
                     span {
                         display: none;
+                        &:first-child {
+                            display: block;
+                            transform: rotate(270deg);
+                            margin-right: 0;
+                        }
                     }
+                }
+                &__numbers {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+    &--inside-page {
+        &.white {
+            .logo__icon {
+                width: 236px;
+                height: 81px;
+                background: url('images/logo-horizontal.png') center center no-repeat;
+                @include phones {
+                    width: 140px;
+                    background: url('images/logo-horizontal-color.png') no-repeat;
+                    background-size: contain;
+                }
+            }
+            .contacts__icon {
+                width: 28px;
+                height: 28px;
+                background: url('images/whatsapp_white.png') center center no-repeat;
+                background-size: contain;
+                @include phones {
+                    width: 22px;
+                    height: 22px;
+                    background: url('images/whatsapp.png');
+                    background-size: contain;
                 }
             }
         }
     }
 }
+
 .logo {
     &--horizontal {
         @include tablets {
@@ -197,11 +273,13 @@ a {
     text-align: right;
     &__slogan {
         margin: 0;
+        font-family: Circe-Light;
     }
     &__phone {
         margin-top: 20px;
         display: flex;
         align-items: center;
+        justify-content: flex-end;
         @include laptop {
             margin-top: 10px;
         }
@@ -228,6 +306,27 @@ a {
     &__address {     
         @include phones {
             display: none;
+        }
+    }
+    &--color {
+        .contacts__phone {
+            flex-direction: column;
+            @include phones {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+    }
+    &__title {
+        @include phones {
+            display: none;
+        }
+    }
+    &__icon {
+        width: 25px;
+        margin-right: 8px;
+        @include phones {
+            display: block;
         }
     }
 }
@@ -263,19 +362,29 @@ a {
 //Основная информация первой секции
 .intro {
     @include phones {
-        width: 80%;
-        margin: 0 auto;
+        width: 88%;
+        margin: 50px auto 0 auto;
     }
     &__title {
         text-transform: uppercase;
-        margin-top: 65px;
+        margin-top: 40px;
         line-height: 1.3;
-        font-weight: 300;
+        border-left: 8px solid #03c5bd;
+        padding-left: 30px;
         @include laptop {
-            margin-top: 45px;   
+            margin-top: 0px;   
         }
         @include min-tablets {
             margin-top: 30px;
+        }
+        @include phones {
+            padding-left: 0;
+            border-left: none;
+        }
+    }
+    .divide-line {
+        @include phones {
+            display: block;
         }
     }
     p {
@@ -283,18 +392,12 @@ a {
         @include laptop {
             margin: 20px 0 0 0;
         }
-        @include phones {
-            display: none;
-        }
     }
     &__list {
         padding-left: 15px;
         line-height: 1.5;
         @include laptop {
             margin-top: 5px;
-        }
-        @include phones {
-            display: none;
         }
     }
 }
@@ -333,18 +436,44 @@ a {
 .buttons {
     display: flex;
     margin-top: 45px;
-    @include laptop {
+    align-items: center;
+    @include min-tablets {
         margin-top: 20px;
-    }
-    @include phones {
         flex-direction: column;
     }
+    &__wrap {
+        display: flex;
+        align-items: center;
+        @include phones {
+            width: 100%;
+            margin-bottom: 20px;
+            justify-content: space-between;
+            align-items: unset;
+
+        }
+    }
     .btn {
+        @include phones {
+            width: 49%;
+        }
         &:first-child {
             margin-right: 40px;
             @include phones {
                 margin-right: 0;
-                margin-bottom: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        &--inverse {
+            margin-left: 40px;
+            @include min-tablets {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            @include phones {
+                width: 100%;
+                margin-top: 0;
             }
         }
     }
@@ -367,7 +496,7 @@ a {
     }
 }
 .notice {
-    margin-top: 70px;
+    margin-top: 40px;
     display: flex;
     align-items: center;
     @media screen and (max-width: 1600px) {
@@ -401,6 +530,9 @@ a {
             margin-bottom: 10px;
         }
     }
+    @include phones {
+        display: none;
+    }
 }
 
 //Секция "Преимущества"
@@ -417,10 +549,7 @@ a {
     }
 }
 .text-block {
-    margin-top: 50px;
-    @media screen and (max-width: 1600px) {
-        margin-top: 20px;
-    }
+    margin-top: 20px;
     p {
         line-height: 1.5;
         letter-spacing: 0.8px;
@@ -448,48 +577,69 @@ a {
         padding: 25px 15px 25px 15px;
         margin-top: 80px;
     }
-    .btn {
-        display: none;
-        @include phones {
-            display: block;
-            width: 60%;
-            margin: 30px auto 10px auto;
-        }
-    }
     &__wrap {
         display: flex;
         margin-top: 55px;
         @include laptop {
             margin-top: 25px;
         }
-        @include phones {
-            display: none;
+        @media screen and (max-width: 600px) {
+            flex-wrap: wrap;
         }
     }
     &__item {
         width: calc(100%/5);
+        position: relative;
+        @media screen and (max-width: 600px) {
+            width: calc(100%/3);
+            margin-top: 30px;
+        }
+        @include phones {
+            width: 100%;
+            display: flex;
+            &:nth-child(even) {
+                flex-direction: row-reverse;
+                .advantages__desc {
+                    padding-left: 0
+                }
+            }
+        }
     }
     &__icon {
         height: 60px;
         border-image-slice: 1;
         position: relative;
+        border-bottom: 0;
+        border-top: 0;
+        border-right: 0;
+        @include phones {
+            border: none;
+        }
         img {
             position: absolute;
             bottom: 0;
             left: 15px;
+            @include phones {
+                left: 0;
+                position: relative;
+            }
         }
     }
     &__desc {
         margin-top: 25px;
         padding-left: 15px;
+        @include phones {
+            padding-left: 30px;
+        }
     }
 }
 .slider {
     position: relative;
     width: 100%;
     height: 470px;
+    overflow: hidden;
     @media screen and (max-width: 1600px) {
-        height: 40%;
+        height: 35%;
     }
     @include laptop {
         img {
@@ -507,32 +657,24 @@ a {
             width: 200%;
         }
     }
-    .arrow {
-        @include phones {
-            &.arrow-prev-color {
-                position: absolute;
-                bottom: -60px;
-                left: 80px;
-            }
-            &.arrow-next-color {
-                position: absolute;
-                bottom: -60px;
-                right: 80px;
-            }
-        }
-    }
 }
 .arrow {
     width: 53px;
     height: 38px;
     z-index: 10;
     &.arrow-prev {
-        background: url('../images/arrow-left.png') no-repeat;
+        background: url('images/arrow-left.png') no-repeat;
         position: absolute;
         left: 240px;
         top: 50%;
         @include tablets {
             left: 20px;
+        }
+        @include phones {
+            background: url('images/arrow-left-color.png') no-repeat;
+            position: absolute;
+            top: 105%;
+            left: 80px;
         }
         &:hover {
             cursor: pointer;
@@ -540,27 +682,35 @@ a {
         }
     }
     &.arrow-next {
-        background: url('../images/arrow-right.png') no-repeat;
+        background: url('images/arrow-right.png') no-repeat;
         position: absolute;
         right: 240px;
         top: 50%;
         @include tablets {
             right: 20px;
         }
+        @include phones {
+            background: url('images/arrow-right-color.png') no-repeat;
+            position: absolute;
+            top: 105%;
+            right: 80px;
+        }
         &:hover {
             cursor: pointer;
             background-position: 0 -38px;
         }
     }
-    &.arrow-prev-color {
-        background: url('../images/arrow-left-color.png') no-repeat;
+    &.arrow-prev-color, &.arrow-prev-color-specialists, &.arrow-prev-color-works,
+    &.arrow-prev-color-article {
+        background: url('images/arrow-left-color.png') no-repeat;
         &:hover {
             cursor: pointer;
             background-position: 0 -38px;
         }
     }
-    &.arrow-next-color {
-        background: url('../images/arrow-right-color.png') no-repeat;
+    &.arrow-next-color, &.arrow-next-color-specialists, &.arrow-next-color-works,
+    &.arrow-next-color-article {
+        background: url('images/arrow-right-color.png') no-repeat;
         &:hover {
             cursor: pointer;
             background-position: 0 -38px;
@@ -588,6 +738,62 @@ a {
             display: none;
         }
     }
+    &.arrow-prev-color-works {
+        position: absolute;
+        bottom: -50px;
+        left: 40%;
+        @include phones {
+            left: 30%;
+            bottom: -40px;
+        }
+    }
+    &.arrow-next-color-works {
+        position: absolute;
+        bottom: -50px;
+        right: 40%;
+        @include phones {
+            right: 30%;
+            bottom: -40px;
+        }
+    }
+    &.arrow-prev-color-article {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        @media screen and (max-width: 1600px) {
+            left: 20px;
+        }
+        @include tablets {
+            top: 100px;
+            left: 30%;
+        }
+        @media screen and (max-width: 580px) {
+            top: 130px;
+        }
+        @include phones {
+            top: 100px;
+            left: 30%;
+        }
+    }
+    &.arrow-next-color-article {
+        position: absolute;
+        top: 50%;
+        right: 12%;
+        @media screen and (max-width: 1600px) {
+            right: 60px;
+        }
+        @include tablets {
+            top: 100px;
+            right: 40%;
+        }
+        @media screen and (max-width: 580px) {
+            top: 130px;
+        }
+        @include phones {
+            top: 100px;
+            right: 30%;
+        }
+    }
 }
 //Стилизация one-pagination
 .onepage-pagination li a:before {
@@ -612,7 +818,7 @@ a {
     }
 }
 //Иконка гамбургера
-.nav-icon-2{
+.nav-icon-2 {
     width: 35px;
     height: 30px;
     position: relative;
@@ -712,6 +918,7 @@ a {
         }
         @include laptop {
             padding: 0 100px;
+            margin-bottom: 20px;
         }
         @include tablets {
             padding: 0 30px;
@@ -740,17 +947,6 @@ a {
             .services__img {
                 opacity: 1;
             }
-            .services__icon {
-                &.treatment {
-                    background-position: 0 -104px;
-                }
-                &.hygiene {
-                    background-position: 0 -86px;
-                }
-                &.surgery {
-                    background-position: 0 -85px;
-                }
-            }
         }
     }
     &__img {
@@ -768,7 +964,6 @@ a {
         &.treatment {
             width: 84px;
             height: 104px;
-            background: url('../images/services-icon1.png') no-repeat;
             top: 45px;
             left: 25px;
             @media screen and (max-width: 1600px) {
@@ -778,7 +973,6 @@ a {
         &.hygiene {
             width: 85px;
             height: 86px;
-            background: url('../images/services-icon2.png') no-repeat;
             top: 60px;
             left: 25px;
             @media screen and (max-width: 1600px) {
@@ -788,7 +982,6 @@ a {
         &.surgery {
             width: 78px;
             height: 85px;
-            background: url('../images/services-icon3.png') no-repeat;
             top: 60px;
             left: 25px;
             @media screen and (max-width: 1600px) {
@@ -831,6 +1024,7 @@ a {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 40px;
+    width: 100%;
     @media screen and (max-width: 1600px) {
         margin-top: 0;
     }
@@ -848,7 +1042,7 @@ a {
             height: 250px;
         }
         @include laptop {
-            height: 190px;
+            height: 180px;
         }
         @include tablets {
             padding-left: 10px;
@@ -910,6 +1104,7 @@ a {
         @include phones {
             margin: 10px auto;
             width: 75%;
+            text-align: center;
             @media screen and (max-width: 360px) {
                 width: 100%;
             }
@@ -947,16 +1142,33 @@ a {
         margin-left: 15px;
     }
 }
+.insta-wrap {
+    display: flex;
+    align-items: center;
+    margin-top: 10px; 
+    @include phones {
+        flex-direction: column-reverse;
+    }
+    p {
+        margin-left: 20px;
+        font-size: 20px;
+        @include phones {
+            text-align: center;
+            font-size: 14px;
+        }
+    }
+}
 .instagram {
     display: flex;
     justify-content: space-between;
+    height: 100%;;
     @include phones {
         display: none;
     }
     &__link {
         display: flex;
         width: calc(100%/6);
-        height: 313px;
+        // height: 313px;
         background-size: cover;
         background-repeat: no-repeat;
         @media screen and (max-width: 1600px) {
@@ -1006,6 +1218,15 @@ a {
         flex-direction: column;
         justify-content: center;
     }
+    &--main {
+        .contacts__phone {
+            &--column {
+                flex-direction: row !important;
+                align-items: center
+            }
+            
+        }
+    }
     &__img {
         position: absolute;
         top: 0;
@@ -1043,14 +1264,22 @@ a {
             text-align: center;
         }
         &__phone {
+            justify-content: flex-start;
             @include phones {
-                flex-direction: column;
+                justify-content: center;
                 span {
                     &:first-child {
                         font-size: 14px;
                     }
                 }
             }
+            .rotate {
+                transform: rotate(270deg);
+                margin-left: -10px;
+            }
+        }
+        &__numbers {
+            margin-left: -15px;
         }
         &__address {
             @include phones {
@@ -1059,6 +1288,12 @@ a {
         }
         hr {
             margin-left: 0;
+        }
+        &--color {
+            .contacts__phone {
+                margin-right: 0;
+                flex-direction: column;
+            }
         }
     }
     .section-title {
@@ -1070,6 +1305,16 @@ a {
         margin: 50px 0 20px 0;
         @include laptop {
             margin: 20px 0;
+        }
+    }
+    .contacts-form__notice {
+        @include phones {
+            display: none;
+        }
+    }
+    .creator {
+        @include phones {
+            display: none;
         }
     }
 }
@@ -1086,29 +1331,33 @@ a {
             flex-direction: column;
             justify-content: center;
         }
+        .footer-menu {
+            &__list {
+                padding: 0;
+                list-style: none;
+                text-align: center;
+                line-height: 1.3;
+            }
+        }
+        .socials {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &__wrap {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                width: 50%;
+            }
+        }
     }
     &__bottom {
         padding: 8px 0;
         text-align: center;
-    }
-}
-.footer-menu {
-    &__list {
-        padding: 0;
-        list-style: none;
-        text-align: center;
-        line-height: 1.3;
-    }
-}
-.socials {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    &__wrap {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 50%;
+        display: none;
+        @include phones {
+            display: block;
+        }
     }
 }
 .modal-window {
@@ -1120,15 +1369,39 @@ a {
     @media screen and (max-width: 1600px) {
         padding: 60px 100px 60px 0;
     }
+    @include phones {
+        width: 90%;
+        margin-left: 10%;
+        padding: 60px 0 60px 40px;
+        height: auto;
+    }
+    &__addition {
+        display: none;
+        @include phones {
+            display: flex;
+            flex-direction: column;
+            order: -1;
+        }
+    }
 }
 //Меню в модальном окне
-.menu {
+.modal-menu {
     display: flex;
     align-items: flex-start;
     @include min-tablets {
         flex-direction: column-reverse;
     }
     &__left {
+        @include phones {
+            width: 100%;
+        }
+        .btn:last-child {
+            @include phones {
+                display: none;
+            }
+        }
+    }
+    &__right {
         @include phones {
             width: 100%;
         }
@@ -1143,8 +1416,43 @@ a {
         hr {
             margin-left: 0;
         }
+        &__phone {
+            justify-content: flex-start;
+            margin-bottom: 15px;
+            flex-direction: row;
+            align-items: center;
+            @include phones {
+                margin-bottom: 0;
+            }
+            .rotate {
+                transform: rotate(270deg);
+                margin-right: -5px;
+                margin-left: -15px;
+                @include phones {
+                    font-size: 11px;
+                    margin-left: -8px;
+                }
+            }
+        }
+        &__numbers {
+            display: flex;
+            flex-direction: column;
+        }
         @include tablets {
             display: none;
+        }
+        @include phones {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+            margin-left: 0;
+            .contacts__phone {
+                display: flex;
+                align-items: center;
+            }
+            .contacts__address {
+                display: block;
+            }
         }
     }
     &__list {
@@ -1154,6 +1462,15 @@ a {
         padding-left: 0;
         @include tablets {
             margin: 0 0 0 40px;
+        }
+        @include phones {
+            margin: 0;
+        }
+    }
+    &__item {
+        @include phones {
+            border-bottom: 2px solid #fff;
+            padding: 5px 0;
         }
     }
     &__link {
@@ -1173,6 +1490,10 @@ a {
         top: 70px;
         margin-top: 0;
     }
+    @include phones {
+        top: 30px;
+        right: 30px;
+    }
 }
 //Переопределение стилей fancybox
 .fancybox-bg {
@@ -1191,4 +1512,1307 @@ a {
 }
 .visible {
     opacity: 1;
+}
+
+
+//Страница "Врачи"
+.header {
+    &--inside-page {
+        padding: 25px 376px 40px 376px;
+        flex-direction: column;
+        position: relative;
+        z-index: 20;
+        @media screen and (max-width: 1600px) {
+            padding: 25px 100px 40px 100px;
+        }
+        @include tablets {
+            padding: 25px 70px 40px 70px;
+        }
+        @media screen and (max-width: 970px) {
+            padding: 25px 15px 40px 15px;
+        }
+        @include phones {
+            padding: 25px 15px;
+            height: 150px;
+        }
+        .divide-line {
+            width: 234px;
+            @include phones {
+                display: none;
+            }
+        }
+        .mobile-pic {
+            display: none;
+            @include phones {
+                display: block;
+                position: absolute;
+                top: 30px;
+                left: 0;
+                width: 80px;
+            }
+        }
+    }
+    &__top {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        @include phones {
+            margin-top: 50px;
+        }
+        .contacts {
+            display: flex;
+            align-items: flex-end;
+            @media screen and (max-width: 970px) {
+                flex-wrap: wrap;
+            }
+            &__phone {
+                margin-top: 0;
+                margin-left: 15px;
+                flex-direction: row;
+                &--abs {
+                    @include phones {
+                        position: absolute;
+                        width: 160px;
+                        top: 145px;
+                        left: 50%;
+                        margin-left: -80px;
+                    }
+                }
+                &--column {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-end;
+                    @media screen and (max-width: 970px) {
+                        margin-top: 10px;
+                    }
+                    @include phones {
+                        position: absolute;
+                        right: 35px;
+                        top: 65px;
+                    }
+                    div {
+                        display: flex;
+                        align-items: center;
+                        @include phones {
+                            display: flex;
+                            span:nth-child(3) {
+                                display: none;
+                            }
+                        }
+                    }
+                    .contacts__slogan {
+                        @include phones {
+                            display: none;
+                        }
+                    }
+                    span:first-child {
+                        transform: rotate(270deg);
+                        margin: 0;
+                        font-size: 14px;
+                    }
+                }
+                span:first-child {
+                    margin-right: 5px;
+                }
+            }
+            &__numbers {
+                display: flex;
+                flex-direction: column !important;
+                margin-left: -10px;
+            }
+            &__address {
+                margin: 0;
+                @include phones {
+                    display: block;
+                    position: absolute;
+                    top: 130px;
+                    width: 150px;
+                    left: 50%;
+                    margin-left: -75px;
+                }
+            }
+        }
+        .visually-impaired {
+            width: 160px;
+            margin-bottom: 0;
+            @include phones {
+                width: 100%;
+            }
+            span {
+                text-align: right;
+            }
+            &__icon {
+                width: 45px;
+                height: 29px;
+                background: url('images/eye.png') center center no-repeat;
+                background-size: contain;
+                @include phones {
+                    background: url('images/eye-white.png');
+                }
+            }
+        }
+    }
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media screen and (max-width: 1260px) {
+            margin-top: 20px;
+        }
+        .logo {
+            @include phones {
+                position: absolute;
+                top: 65px;
+                left: 15px;
+            }
+        }
+    }
+}
+.back-to {
+    display: none;
+    @include phones {
+        display: flex;
+        position: absolute;
+        width: 160px;
+        left: 50%;
+        margin-left: -80px;
+        top: 240px;
+        span {
+            margin-left: 15px;
+        }
+    }
+}
+.menu {
+    @media screen and (max-width: 1190px) {
+        display: none;
+    }
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    &__item {
+        margin-right: 10px;
+        height: 15px;
+        &:last-child {
+            border-right: none;
+            margin-right: 0;
+            .menu__link {
+                padding-right: 0;
+            }
+        }
+    }
+    &__link {
+        text-decoration: none;
+        display: inline-block;
+        padding-right: 10px;
+        &:after {
+            display: block;
+            content: "";
+            height: 2px;
+            width: 0%;
+            transition: width .3s ease-in-out;
+        }
+        &:hover {
+            &:after {
+                width: 100%;
+            }
+        }
+        &.active {
+            font-weight: bold;
+        }
+    }
+}
+.btn-consultation {
+    text-decoration: none;
+    display: block;
+    width: 190px;
+    padding: 10px 13px;
+    box-sizing: border-box;
+    transition: 0.2s ease-in-out;
+    margin-right: 20px;
+}
+.right-block {
+    display: flex;
+    align-items: center;
+    a:last-child {
+        display: none;
+        @include phones {
+            display: block;
+            position: absolute;
+            right: 15px;
+            top: 85px;
+        }
+    }
+    .btn-consultation {
+        @include phones {
+            position: absolute;
+            top: 180px;
+            width: 214px;
+            left: 50%;
+            margin-left: -107px;
+            text-align: center;
+        }
+    }
+}
+.cookies {
+    padding: 16px 376px;
+    background-color: #d8f2f6;
+    z-index: 2;
+    position: relative;
+    @media screen and (max-width: 1600px) {
+        padding: 16px 100px;
+    }
+    @include tablets {
+        padding: 16px 70px;
+    }
+    @media screen and (max-width: 970px) {
+        padding: 16px 15px;
+    }
+    @include phones {
+        padding: 25px 15px;
+    }
+    &__link {
+        margin-right: 15px;
+    }
+    @include phones {
+        display: none;
+    }
+    &--transparent {
+        background-color: transparent;
+    }
+}
+.page-title {
+    text-transform: uppercase;
+    margin: 0;
+}
+.content-zone {
+    .container {
+        padding-top: 0;
+    }
+}
+.desc {
+    &.mobile-hidden {
+        @include phones {
+            display: none;
+        }
+    }
+}
+.team {
+    &__item {
+        display: flex;
+        margin-top: 50px;
+        @media screen and (max-width: 600px) {
+            flex-direction: column;
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+    &__photo {
+        @media screen and (max-width: 840px) {
+            width: 400px;
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
+        @media screen and (max-width:600px) {
+            width: 100%;
+        }
+    }
+    &__info {
+        margin-left: 45px;
+        @media screen and (max-width: 600px) {
+            margin-left: 0;
+            margin-top: 20px;
+        }
+    }
+    &__name { 
+        margin: 0 0 10px 0;
+    }
+    &__desc {
+        margin-top: 20px;
+        @include phones {
+            display: none;
+        }
+    }
+    &__more {
+        margin-left: 40px;
+        @include phones {
+            margin-left: 0;
+        }
+    }
+}
+.links {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    @include phones {
+        flex-direction: column-reverse
+    }
+}
+.btn-order {
+    display: block;
+    width: 245px;
+    padding: 13px;
+    box-sizing: border-box;
+    transition: .2s ease-in-out;
+    text-align: center;
+    @include phones {
+        margin-top: 15px;
+        width: 80%;
+    }
+}
+//Блок "Записаться на прием"
+.form-registration {
+    margin-top: 70px; 
+    padding: 20px 0;
+    @include phones {
+        margin-top: 0;
+    }
+    .divide-line {
+        @include phones {
+            display: block;
+        }
+    }
+    .page-title {
+        margin: 20px 0;
+    }
+    &__fields {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        input {
+            width: calc(95%/3);
+            box-sizing: border-box;
+            @media screen and (max-width: 650px) {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+        @media screen and (max-width: 650px) {
+            flex-direction: column;
+        }
+    }
+    &__agreement { 
+        margin-top: 30px;
+    }
+}
+input {
+    border: none;
+    padding: 10px 15px;
+}
+.footer {  
+    @include phones {
+        display: none;
+    }
+    &__block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo {
+            img {
+                width: 300px;
+                @media screen and (max-width: 680px) {
+                    width: 200px;
+                }
+                @media screen and (max-width: 560px) {
+                    width: 120px;
+                }
+            }
+        }
+        .contacts__block {
+            display: flex;
+        }
+        .contacts__phone {
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            span:first-child {
+                margin-right: 0;
+            }
+            &:first-child {
+                border-right: 3px solid #fff;
+                padding-right: 15px;
+            }
+            &:last-child {
+                padding-left: 15px;
+            }
+            &--row {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+        .contacts__slogan {
+            margin-bottom: 10px;
+            font-size: 14px;
+            @include laptop {
+                font-size: 12px;
+            }
+        }
+        .contacts__phone--column {
+            div {
+                display: flex;
+                flex-direction: row;
+                span {
+                    transform: rotate(270deg);
+                    margin: 0;
+                }
+            }
+        }
+        .contacts__numbers {
+            display: flex;
+            flex-direction: column !important;
+            margin-left: -30px;
+            @include laptop {
+                margin-left: -15px;
+            }
+        }
+    }
+    &__title {
+        text-transform: uppercase;   
+        line-height: 1.5;
+        border-left: 5px solid #fff;
+        padding-left: 20px;
+        @media screen and (max-width: 1190px) {
+            display: none;
+        }
+    }
+    .footer-menu {
+        @media screen and (max-width: 850px) {
+            display: none;
+        }
+        &__list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+        &__item {
+            margin-right: 20px;
+        }
+    }
+}
+.socials {
+    display: flex;
+    align-items: center;
+    &__wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-left: 10px;
+    }
+    &__icon {
+        margin-right: 10px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+//Страница "Статьи"
+.article-types {
+    &__list {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        @media screen and (max-width: 1070px) {
+            flex-wrap: wrap;
+        }
+    }
+    &__link {
+        display: block;
+        padding: 10px 20px;
+        margin-right: 20px;
+        transition: .2s ease-in-out;
+        @media screen and (max-width: 1070px) {
+            margin-top: 10px;
+        }
+    }
+}
+.article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &__item {
+        width: calc(95%/3);
+        margin-top: 50px;
+        display: block;
+        @include min-tablets {
+            width: calc(95%/2);
+        }
+        @media screen and (max-width: 600px) {
+            width: 100%;
+        }
+    }
+    &__pic {
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
+    &__title {
+        text-transform: uppercase;
+    }
+}
+#lightSlider8 {
+    margin-top: 30px;
+    .article__item {
+        width: 100%;
+        padding-bottom: 20px;
+    }
+}
+.btn-load {
+    @include min-tablets {
+        margin: 0 auto;
+    }
+}
+
+//Страница "Услуги"
+.service {
+    display: flex;
+    flex-wrap: wrap;
+    &__item {
+        width: calc(100%/4);
+        padding: 15px 0 15px 30px;
+        box-sizing: border-box;
+        @include tablets {
+            width: calc(100%/3);
+        }
+        @include min-tablets {
+            width: calc(100%/2);
+        }
+    }
+    &__title {
+        display: flex;
+        align-items: center;
+    }
+    &__name {
+        height: 45px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 15px;
+        margin-left: 15px;
+        span {
+            font-size: 14px;
+        }
+    }
+    &__list {
+        list-style: none;
+        padding: 0;
+        line-height: 1.5;
+    }  
+}
+.information {
+    margin-top: 40px;
+    padding-top: 50px;
+    .divide-line {
+        margin: 20px 0;
+        @include phones {
+            display: block;
+        }
+    }
+}
+
+//Страница "Стоимость"
+.prices {
+    &__list {
+        list-style: none;
+        padding: 0;
+    }
+    &__item {
+        margin-top: 20px;
+        &:hover {
+            cursor: pointer;
+        }
+        &.active {
+            .prices__arrow-list {
+                background-position: 0 -29px;
+            }
+        }
+    }
+    &__title {
+        display: flex;
+        align-items: center;
+    }
+    &__icon {
+        width: 100px;
+        @include phones {
+            width: 80px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+    &__name {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        padding-left: 25px;
+        @include phones {
+            padding-left: 10px;
+            width: 69%;
+        }
+    }
+    &__arrow-list {
+        width: 29px;
+        height: 29px;
+        background: url('../images/arrow-list.png') no-repeat;
+        padding-left: 25px;
+        @include phones {
+            padding-left: 15px;
+        }
+    }
+    &__wrap {
+        transition: .3s ease-in-out;
+        overflow: hidden;
+        height: 0;
+    }
+    &__inside-list {
+        list-style: none;
+        padding: 0;
+    }
+    &__inside-item {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 0;
+        &:last-child {
+            border-bottom: none;
+        }
+        @include phones {
+            padding: 10px 0;
+        }
+        span:last-child {
+            @include phones {
+                width: 20%;
+                text-align: right;
+            }
+        }
+    }
+}
+
+//Страница "Контакты"
+#map {
+    height: 300px;
+    overflow: hidden;
+}
+.contacts-information {
+    padding: 45px 0 0 376px;
+    @media screen and (max-width: 1600px) {
+        padding: 45px 0 0 100px;
+    }
+    @include tablets {
+        padding: 45px 0 0 30px;
+    }
+    @include phones {
+        padding: 45px 0 0 0;
+    }
+    .desc {
+        @include phones {
+            padding: 0 15px;
+        }
+    }
+    &__wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 45px;
+        @media screen and (max-width: 650px) {
+            flex-direction: column;
+        }
+        @include phones {
+            padding: 0 15px;
+        }
+    }
+    &__title { 
+        text-transform: uppercase;
+        span {
+            text-transform: none;
+        }
+    }
+    &__right {
+        width: 960px;
+        height: 390px;
+        overflow: hidden;
+        position: relative;
+        @media screen and (max-width: 650px) {
+            width: 100%;
+        }
+        .arrows {
+            .arrow-prev {
+                left: 50px;
+                top: 80%;
+                @include phones {
+                    top: 0;
+                    background: url('images/arrow-left-color.png');
+                    position: relative;
+                    left: 0;
+                    &:hover {
+                        background-position: 0 -38px;
+                    }
+                }
+            }
+            .arrow-next {
+                left: 130px;
+                top: 80%;
+                @include phones {
+                    top: 0;
+                    background: url('images/arrow-right-color.png');
+                    position: relative;
+                    left: 0;
+                    &:hover {
+                        background-position: 0 -38px;
+                    }
+                }
+            }
+        }
+    }
+}
+.form-registration {
+    &--inverse {
+        margin-top: 0;
+        textarea {
+            border: none;
+            padding: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 20px;
+            resize: none;
+        }
+    }
+}
+
+//Страница "Статьи подробно"
+.article-intro {
+    position: relative;
+    @include phones {
+        margin-top: 80px;
+    }
+    &__background {
+        width: 100%;
+        img {
+            width: 100%;
+        }
+        @include tablets {
+            height: 200px;
+            overflow: hidden;
+            img {
+                height: 100%;
+            }
+        }
+        @include phones {
+            height: 290px;
+        }
+    }
+    &__pic {
+        position: relative;   
+    }
+    &__main {
+        position: absolute;
+        bottom: 0;
+        right: 376px;
+        @include tablets {
+            display: none;
+        }
+    }
+    &__text {
+        position: absolute;
+        bottom: 20px;
+        left: 376px;
+        @include tablets {
+            left: 20px;
+            bottom: 50px;
+        }
+        @include min-tablets {
+            position: relative;
+            padding: 25px 15px;
+            left: 0;
+            bottom: 50px;
+        }
+    }
+    &__desc {
+        @include min-tablets {
+            display: none;
+        }
+    }
+    &__title {
+        text-transform: uppercase;
+        font-family: Circe;
+        margin: 0;
+    }
+}
+.article-more {
+    &__wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 50px;
+        @include min-tablets {
+            flex-direction: column;
+        }
+    }
+    &__pic {
+        width: 400px;
+        height: auto;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+        @include phones {
+            width: 100%;
+        }
+    }
+    &__right {
+        margin-left: 60px;
+        @include min-tablets {
+            margin-left: 0;
+        }
+    }
+}
+.share {
+    @include phones {
+        display: none;
+    }
+    &.mobile-visible {
+        @include phones {
+            display: block;
+        }
+    }
+    &__wrap {
+        display: flex;
+        align-items: center;
+        padding: 50px 0 10px 0;
+        @include phones {
+            justify-content: center;
+        }
+        
+    }
+    &__title {
+        margin: 0;
+    }
+    &__links {
+        margin-left: 35px;
+        @include phones {
+            margin-left: 20px;
+        }
+        @media screen and (max-width: 330px) {
+            margin-left: 10px;
+        }
+    }
+    &__link {
+        margin-right: 20px;
+        @include phones {
+            margin-right: 8px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+.subtitle {
+    margin: 40px 0 0 0;
+    text-transform: uppercase;
+}
+
+//Страница "Услуги подробно"
+.services-more {
+    margin-top: 40px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    &__left {
+        width: 60%;
+        @include min-tablets {
+            width: 100%;
+        }
+        .btn {
+            @include phones {
+                display: none;
+            }
+        }
+    }
+    &__right {
+        width: 40%;
+        margin-left: 50px;
+        box-sizing: border-box;
+        @include min-tablets {
+            display: none;
+        }
+        .prices {
+            &__inside-list {
+                padding-left: 125px;
+
+            }
+            &__inside-item {
+                border: none;
+                padding: 2px 0;
+            }
+        }
+    }
+    &__title {
+        margin: 40px 0;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        span {
+            text-transform: uppercase;   
+            margin-left: 20px;
+        }
+    }
+    
+    &__pic {
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+//Страница "Врачи подробно"
+.specialist {
+    position: relative;
+    padding: 50px 0 30px 0;
+    &__text {
+        width: 50%;
+    }
+    .specialists {
+        &__item {
+            width: 100%;
+        }
+        &__more {
+            left: 25px;
+        }
+        &__hidden-desc {
+            @include phones {
+                background-color: transparent;
+                opacity: 1;
+                .divide-line {
+                    display: none;
+                }
+                .specialists__name {
+                    position: absolute;
+                    bottom: -20px;
+                    color: #756b80;
+                }
+            }
+            
+        }
+    }
+    .arrow-prev-color-specialists,
+    .arrow-next-color-specialists {
+        position: absolute;
+        top: 40%;
+        @include tablets {
+            top: -40px;
+        }
+    }
+    .arrow-prev-color-specialists {
+        left: 293px;
+        @media screen and (max-width: 1600px) {
+            left: 20px;
+        }
+        @include tablets {
+            left: 40%;
+        }
+        @include phones {
+            left: 30%;
+        }
+    }
+    .arrow-next-color-specialists {
+        right: 293px;
+        @media screen and (max-width: 1600px) {
+            right: 55px;
+        }
+        @include tablets {
+            right: 40%;
+        }
+        @include phones {
+            right: 30%;
+        }
+    }
+}
+.photos {
+    position: relative;
+    &__list {
+        display: flex;
+    }
+    li {
+        @include phones {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+.requirements {
+    &__wrap {
+        display: flex;
+        margin-top: 40px;
+        @include phones {
+            margin-top: 0;
+            flex-direction: column;
+        }
+    }
+    &__item {
+        margin-right: 40px;
+    }
+    &__list {
+        list-style: none;
+        padding-left: 30px;
+        @include phones {
+            padding-left: 0;
+        }
+    }
+}
+.specialist-info {
+    margin-top: 60px;
+    @include phones {
+        margin-top: 20px;
+    }
+    &.white {
+        padding-bottom: 20px;
+        margin-top: 0;  
+        .divide-line {
+            margin: 20px 0;
+            @include phones {
+                display: block;
+            }
+        }
+    } 
+    &__title {
+        text-transform: uppercase;
+    }
+    &__list {
+        list-style: none;
+        padding: 0;
+    }
+    &__profile {
+        display: flex;
+        align-items: center;
+        span {
+            margin-left: 20px; 
+        }
+    }
+    &__photo {
+        position: absolute;
+        bottom: -45px;
+        right: 0;
+        z-index: 1;
+        @include laptop {
+            bottom: -10px;
+            width: 35%;
+            img {
+                width: 100%;
+            }
+        }
+        @include min-tablets {
+            display: none;
+        }
+        &.mobile-visible {
+            display: none;
+            @include phones {
+                display: block;
+                bottom: -5px;
+                width: 80%;
+                right: 35px;
+            }
+        }
+    }
+    &__text {
+        width: 50%;
+    }
+    &__name {
+        @include tablets {
+            margin: 0 auto auto auto;
+        }
+    }
+}
+.specialist-intro {
+    position: relative;
+    display: flex;
+    z-index: 1;
+    .specialist__text {
+        @include laptop {
+            width: 65%;
+        }
+        @include min-tablets {
+            width: 100%;
+        }
+    }
+    @include phones {
+        margin-top: 500px;
+    }
+}
+.top-background {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1;
+    @include tablets {
+        height: 470px;
+    }
+    @include phones {
+        top: 280px;
+        height: 400px;
+    }
+}
+.ornament {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    @media screen and (max-width: 1366px) {
+        display: none;
+    }
+}
+//Бесплатная консультация
+.free-consultation {
+    &__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 120px;
+        @include phones {
+            width: 90px;
+        }
+    }
+    &__title {
+        text-align: center;
+        text-transform: uppercase;
+        @include laptop {
+            font-size: 18px;
+        }
+        @include min-tablets {
+            font-size: 12px;
+        }
+    }
+    .divide-line {
+        margin: 40px auto;
+    }
+    .fields {
+        display: flex;
+        justify-content: space-between;
+        @include phones {
+            flex-direction: column;
+        }
+        input {
+            width: calc(98%/3);
+            background-color: #f0fdff;
+            font-size: 14px;
+            @include phones {
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+        .btn {
+            background-color: #03c5bd;
+        }
+    }
+    textarea {
+        background-color: #f0fdff;
+        font-size: 14px;
+        border: none;
+        font-family: Circe;
+        resize: none;
+        margin-top: 20px;
+        height: 140px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px;
+    }
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+        &--column {
+            flex-direction: column;
+            p {
+                text-align: center;
+            }
+        }
+        @include phones {
+            flex-direction: column;
+        }
+        p {
+            font-size: 14px;
+            width: 60%;
+            margin-left: 10px;
+            @include tablets {
+                font-size: 12px;
+            }
+            @include phones {
+                width: 100%;
+            }
+        }
+        a {
+            color: #756b80;
+        }
+        #file {
+            display: none;
+        }
+        label {
+            cursor: pointer;
+        }
+        span {
+            display: none;
+            @include phones {
+                display: block;
+                margin-left: 10px;
+                font-size: 13px;
+            }
+        }
+        .file-icon {
+            display: flex;
+            align-items: center;
+        }
+    }
+    .close {
+        top: 50px;
+        right: 50px;
+        @include phones {
+            top: 30px;
+            right: 30px;
+        }
+    }
+}
+#sign-up, #free-consultation, #calculate-price {
+    display: none;
+}
+#service-mobile {
+    .buttons .btn {
+        @include phones {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+}
+#calculate-price {
+    width: 55%;
+    @include min-tablets {
+        width: 90%;
+    }
+}
+//Страница Гарантии
+.documents {
+    &__item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    &__text {
+        margin-left: 30px;        
+    }
+    &__title {
+        text-transform: uppercase;
+    }
+    &__links {
+        a {
+            color: #756b80;
+            margin-right: 30px;
+        }
+    }
 }

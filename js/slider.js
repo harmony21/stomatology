@@ -61,10 +61,10 @@ $(document).ready(function() {
       }
   ]
   }); 
-  $('.arrow-prev-color').click(function(e) {
+  $('.arrow-prev-color-services').click(function(e) {
     slider2.goToPrevSlide();
   });
-  $('.arrow-next-color').click(function(e) {
+  $('.arrow-next-color-services').click(function(e) {
     slider2.goToNextSlide();
   });
 
@@ -101,4 +101,117 @@ $(document).ready(function() {
       slider4.goToNextSlide();
     });
 
+    //слайдер специалистов
+    var slider6 = $("#lightSlider6");
+    slider6.lightSlider({
+      item: 4,
+      speed: 600,
+      pager: false,
+      enableDrag: true,
+      adaptiveHeight: true,
+      responsive : [
+        {
+          breakpoint:1024,
+          settings: {
+              item:3
+            }
+        },
+        {
+          breakpoint:768,
+          settings: {
+              item:2
+            }
+        },
+        {
+          breakpoint:480,
+          settings: {
+              item:1
+            }
+        }
+    ]
+    }); 
+    $('.arrow-prev-color-specialists').click(function(e) {
+      slider6.goToPrevSlide();
+    });
+    $('.arrow-next-color-specialists').click(function(e) {
+      slider6.goToNextSlide();
+    });
+
+    //слайдер работ специалиста
+    var slider7 = $("#lightSlider7");
+    slider7.lightSlider({
+      item: 6,
+      speed: 600,
+      pager: false,
+      enableDrag: true,
+      adaptiveHeight: true,
+      responsive : [
+        {
+          breakpoint:1366,
+          settings: {
+              item:5
+            }
+        },
+        {
+          breakpoint:1024,
+          settings: {
+              item:4
+            }
+        },
+        {
+          breakpoint:768,
+          settings: {
+              item:3
+            }
+        },
+        {
+          breakpoint:550,
+          settings: {
+              item:2
+            }
+        },
+        {
+          breakpoint:480,
+          settings: {
+              item:1
+            }
+        }
+    ]
+    }); 
+    $('.arrow-prev-color-works').click(function(e) {
+      slider7.goToPrevSlide();
+    });
+    $('.arrow-next-color-works').click(function(e) {
+      slider7.goToNextSlide();
+    });
+
+    //слайдер статей "вам также может быть интересно"
+    var slider8 = $("#lightSlider8");
+    slider8.lightSlider({
+      item: 3,
+      speed: 600,
+      pager: false,
+      enableDrag: true,
+      adaptiveHeight: false,
+      responsive : [
+        {
+          breakpoint:768,
+          settings: {
+              item:2
+            }
+        },
+        {
+          breakpoint:580,
+          settings: {
+              item:1
+            }
+        }
+    ]
+    }); 
+    $('.arrow-prev-color-article').click(function(e) {
+      slider8.goToPrevSlide();
+    });
+    $('.arrow-next-color-article').click(function(e) {
+      slider8.goToNextSlide();
+    });
 });

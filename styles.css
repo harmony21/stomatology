@@ -1,0 +1,711 @@
+body {
+  font-size: 16px;
+  color: #756b80; }
+
+.section--advantages {
+  background-color: #f0fdff; }
+  @media screen and (max-width: 480px) {
+    .section--advantages {
+      background-color: #fff; } }
+
+.visually-impaired {
+  color: #fff;
+  font-size: 14px; }
+  @media screen and (max-width: 480px) {
+    .visually-impaired {
+      background-color: rgba(0, 0, 0, 0.5); } }
+  .visually-impaired--color {
+    color: #776d82; }
+  @media screen and (max-width: 480px) {
+    .visually-impaired--mobile {
+      color: #fff;
+      background-color: #03c5bd; } }
+
+.contacts__slogan {
+  font-size: 24px;
+  color: #fff; }
+  @media screen and (max-width: 1366px) {
+    .contacts__slogan {
+      font-size: 16px; } }
+  @media screen and (max-width: 768px) {
+    .contacts__slogan {
+      font-size: 14px; } }
+
+.contacts__phone {
+  color: #fff; }
+  .contacts__phone span {
+    color: #fff; }
+    .contacts__phone span:first-child {
+      font-size: 24px; }
+      @media screen and (max-width: 1366px) {
+        .contacts__phone span:first-child {
+          font-size: 18px; } }
+      @media screen and (max-width: 480px) {
+        .contacts__phone span:first-child {
+          font-size: 12px; } }
+  .contacts__phone a {
+    font-size: 30px;
+    font-family: Circe-Bold;
+    color: #fff; }
+    @media screen and (max-width: 1366px) {
+      .contacts__phone a {
+        font-size: 20px; } }
+    @media screen and (max-width: 480px) {
+      .contacts__phone a {
+        font-size: 14px; } }
+
+.contacts hr {
+  border: 1px solid #fff; }
+
+.contacts__address {
+  color: #fff; }
+  @media screen and (max-width: 1366px) {
+    .contacts__address {
+      font-size: 14px; } }
+  @media screen and (max-width: 768px) {
+    .contacts__address {
+      font-size: 12px; } }
+
+.contacts--color .contacts__address, .contacts--color .contacts__phone a,
+.contacts--color .contacts__phone span, .contacts--color .contacts__slogan {
+  color: #756b80; }
+
+.contacts--color hr {
+  border: 1px solid #756b80; }
+
+.menu-link span {
+  color: #fff;
+  font-size: 18px; }
+
+.menu-link--color span {
+  color: #756b80; }
+
+.menu-link--color .nav-icon-2 span {
+  background-color: #756b80; }
+
+@media screen and (max-width: 480px) {
+  .right-block .btn-consultation {
+    background-color: #03c5bd;
+    color: #fff;
+    border: none;
+    font-size: 16px; } }
+
+.back-to span {
+  font-size: 16px;
+  color: #776d82; }
+
+.intro {
+  color: #fff; }
+  .intro__title {
+    font-family: Circe-Bold;
+    font-size: 44px; }
+    @media screen and (max-width: 1366px) {
+      .intro__title {
+        font-size: 32px; } }
+    @media screen and (max-width: 768px) {
+      .intro__title {
+        font-size: 26px; } }
+    @media screen and (max-width: 480px) {
+      .intro__title {
+        font-family: Circe; } }
+  @media screen and (max-width: 480px) {
+    .intro__addition {
+      font-size: 18px; } }
+  .intro p {
+    font-size: 24px; }
+    @media screen and (max-width: 1366px) {
+      .intro p {
+        font-size: 20px; } }
+    @media screen and (max-width: 768px) {
+      .intro p {
+        font-size: 16px; } }
+  @media screen and (max-width: 1366px) {
+    .intro__list {
+      font-size: 14px; } }
+  @media screen and (max-width: 768px) {
+    .intro__list {
+      font-size: 12px; } }
+  .intro__item {
+    color: #03b5c2; }
+    .intro__item span {
+      color: #fff; }
+
+.divide-line {
+  border: 2px solid #03b5c2; }
+  .divide-line--gradient {
+    border: 2px solid transparent;
+    border-image: linear-gradient(#03c4bd, #04a5c8);
+    -moz-border-image: -moz-linear-gradient(#03c4bd, #04a5c8);
+    -webkit-border-image: -webkit-linear-gradient(#03c4bd, #04a5c8); }
+
+.btn {
+  background-color: #03b5c2;
+  color: #fff; }
+  .btn:hover {
+    background-color: #039ea9; }
+  .btn--inverse {
+    color: #776d82;
+    background-color: #fff; }
+    .btn--inverse:hover {
+      background-color: #03b5c2;
+      color: #fff; }
+  .btn--inverse-border {
+    border: 2px solid #776d82; }
+    .btn--inverse-border:hover {
+      background-color: #776d82; }
+  @media screen and (max-width: 480px) {
+    .btn--services {
+      background-color: #f0fdff;
+      color: #776d82; }
+      .btn--services:hover {
+        background-color: #d1f9ff; } }
+  .btn--light {
+    background-color: #f0fdff;
+    color: #776d82; }
+    .btn--light:hover {
+      color: #fff;
+      background-color: #04a5c8; }
+
+.notice p {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 18px; }
+  @media screen and (max-width: 1366px) {
+    .notice p {
+      font-size: 14px; } }
+  @media screen and (max-width: 768px) {
+    .notice p {
+      font-size: 10px; } }
+
+.scroll span {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px; }
+  @media screen and (max-width: 1366px) {
+    .scroll span {
+      font-size: 12px; } }
+  @media screen and (max-width: 768px) {
+    .scroll span {
+      font-size: 10px; } }
+
+.section-title {
+  font-size: 30px; }
+  @media screen and (max-width: 1366px) {
+    .section-title {
+      font-size: 24px; } }
+  @media screen and (max-width: 1024px) {
+    .section-title {
+      font-size: 18px; } }
+
+.text-block p {
+  font-family: Circe-Bold; }
+  @media screen and (max-width: 1366px) {
+    .text-block p {
+      font-size: 14px;
+      font-family: Circe; } }
+  @media screen and (max-width: 1024px) {
+    .text-block p {
+      font-size: 12px; } }
+
+@media screen and (max-width: 480px) {
+  .advantages {
+    background-color: #f0fdff; } }
+
+.advantages__icon {
+  border-left: 2px solid transparent;
+  border-image: linear-gradient(#03c4bd, #04a5c8);
+  -moz-border-image: -moz-linear-gradient(#03c4bd, #04a5c8);
+  -webkit-border-image: -webkit-linear-gradient(#03c4bd, #04a5c8); }
+
+.advantages__desc {
+  font-size: 18px;
+  font-family: Circe-Bold; }
+  @media screen and (max-width: 1366px) {
+    .advantages__desc {
+      font-size: 14px;
+      font-family: Circe; } }
+  @media screen and (max-width: 1024px) {
+    .advantages__desc {
+      font-size: 12px; } }
+
+.onepage-pagination li a:before {
+  border: 1px solid #03c4bd; }
+
+.onepage-pagination li a.active:before {
+  background: #03c4bd;
+  border: 1px solid #03c4bd; }
+
+.services__item {
+  background-color: #f0fdff; }
+  .services__item:hover .services__title {
+    color: #fff; }
+  .services__item:hover .divide-line--gradient {
+    border-image: linear-gradient(#fff);
+    -moz-border-image: -moz-linear-gradient(#fff, #fff);
+    -webkit-border-image: -webkit-linear-gradient(#fff, #fff);
+    border-image-slice: 1; }
+
+.services__title {
+  color: #756b80;
+  font-size: 26px;
+  font-family: Circe-Bold; }
+  @media screen and (max-width: 1600px) {
+    .services__title {
+      font-size: 20px; } }
+  @media screen and (max-width: 1366px) {
+    .services__title {
+      font-size: 16px; } }
+  @media screen and (max-width: 768px) {
+    .services__title {
+      font-size: 14px; } }
+  .services__title span {
+    font-size: 20px; }
+    @media screen and (max-width: 1366px) {
+      .services__title span {
+        font-size: 12px; } }
+
+.specialists__item {
+  color: #fff; }
+
+.specialists__more {
+  font-size: 14px; }
+  @media screen and (max-width: 768px) {
+    .specialists__more {
+      font-size: 12px; } }
+
+.specialists__hidden-desc {
+  background-color: rgba(1, 143, 167, 0.5); }
+
+.specialists__name {
+  font-size: 24px; }
+  @media screen and (max-width: 1366px) {
+    .specialists__name {
+      font-size: 18px; } }
+  @media screen and (max-width: 768px) {
+    .specialists__name {
+      font-size: 14px; } }
+
+.specialists__desc {
+  font-size: 11px; }
+
+@media screen and (max-width: 1366px) {
+  .reviews p {
+    font-size: 14px; } }
+
+.reviews__name p {
+  font-size: 24px; }
+  @media screen and (max-width: 1366px) {
+    .reviews__name p {
+      font-size: 18px; } }
+
+.instagram-link {
+  color: #756b80;
+  font-size: 24px;
+  font-family: Circe-Bold; }
+
+.contacts-form {
+  background-color: #fff; }
+  .contacts-form__notice {
+    font-size: 10px; }
+  .contacts-form .rotate {
+    font-size: 24px !important; }
+    @media screen and (max-width: 1366px) {
+      .contacts-form .rotate {
+        font-size: 16px !important; } }
+
+.creator {
+  font-size: 12px; }
+  .creator a {
+    color: #756b80; }
+
+.footer--main-page .footer-menu__link {
+  color: #776d82; }
+
+.footer__bottom {
+  background-color: #fff; }
+
+@media screen and (max-width: 480px) {
+  .modal-window {
+    background: rgba(0, 0, 0, 0.95); } }
+
+@media screen and (max-width: 480px) {
+  .modal-window__addition {
+    color: #fff;
+    font-size: 14px; }
+    .modal-window__addition a {
+      color: #fff; } }
+
+.modal-menu__link {
+  color: #756b80;
+  font-size: 50px; }
+  @media screen and (max-width: 1366px) {
+    .modal-menu__link {
+      font-size: 26px; } }
+  @media screen and (max-width: 480px) {
+    .modal-menu__link {
+      color: #fff; } }
+
+@media screen and (max-width: 480px) {
+  .modal-menu .contacts__slogan, .modal-menu .contacts__phone span, .modal-menu .contacts__phone a {
+    color: #fff; } }
+
+.modal-menu .contacts__slogan {
+  font-size: 16px; }
+
+.modal-menu .contacts__phone span {
+  font-size: 24px; }
+  @media screen and (max-width: 1366px) {
+    .modal-menu .contacts__phone span {
+      font-size: 18px; } }
+  @media screen and (max-width: 480px) {
+    .modal-menu .contacts__phone span {
+      font-size: 16px; } }
+
+@media screen and (max-width: 480px) {
+  .modal-menu .contacts__address {
+    color: #fff;
+    font-size: 16px; } }
+
+.header--inside-page {
+  background-color: #f0fdff; }
+  .header--inside-page.white {
+    background-color: transparent; }
+    @media screen and (max-width: 480px) {
+      .header--inside-page.white {
+        background-color: #f0fdff; } }
+    .header--inside-page.white .menu__link, .header--inside-page.white .visually-impaired, .header--inside-page.white .cookies__link {
+      color: #fff; }
+    @media screen and (max-width: 480px) {
+      .header--inside-page.white .contacts__address, .header--inside-page.white .contacts__phone span, .header--inside-page.white .contacts__phone a {
+        color: #776d82; } }
+    .header--inside-page.white .btn-consultation {
+      color: #fff;
+      border: 2px solid #fff; }
+      .header--inside-page.white .btn-consultation:hover {
+        background-color: #03c5bd; }
+      @media screen and (max-width: 480px) {
+        .header--inside-page.white .btn-consultation {
+          border: none; } }
+    .header--inside-page.white .divide-line {
+      border: 2px solid #fff; }
+
+.header__top .contacts__phone a {
+  font-size: 18px; }
+
+.header__top .contacts__slogan {
+  font-size: 14px; }
+
+.menu__item {
+  border-right: 2px solid #756b80; }
+
+.menu__link {
+  color: #756b80;
+  font-size: 18px; }
+  @media screen and (max-width: 1366px) {
+    .menu__link {
+      font-size: 15px; } }
+  .menu__link:after {
+    background-color: #756b80; }
+
+.menu.active {
+  font-family: Circe-Bold; }
+
+.menu--white .menu__item {
+  border-right: 2px solid #fff; }
+
+.btn-consultation {
+  color: #756b80;
+  border: 2px solid #756b80;
+  font-size: 14px; }
+  .btn-consultation:hover {
+    background-color: #756b80;
+    color: #fff; }
+
+.cookies__link {
+  font-size: 14px;
+  color: #756b80; }
+  .cookies__link:last-child {
+    font-family: Circe-Bold; }
+
+.cookies--transparent .cookies__link {
+  color: #fff; }
+
+.page-title {
+  font-size: 40px; }
+  @media screen and (max-width: 1366px) {
+    .page-title {
+      font-size: 34px; } }
+  @media screen and (max-width: 480px) {
+    .page-title {
+      font-size: 20px; } }
+
+.team__name {
+  font-size: 36px;
+  font-family: Circe-Bold; }
+  .team__name span {
+    color: #03c5bd; }
+  @media screen and (max-width: 480px) {
+    .team__name {
+      font-size: 18px; } }
+
+.team__desc {
+  font-size: 14px; }
+
+.team__more {
+  font-size: 14px;
+  color: #756b80; }
+
+.btn-order {
+  background-color: #f0fdff;
+  font-size: 18px;
+  color: #756b80; }
+  .btn-order:hover {
+    background-color: #03c5bd;
+    color: #fff; }
+  @media screen and (max-width: 480px) {
+    .btn-order {
+      background-color: #03c5bd;
+      color: #fff; }
+      .btn-order:hover {
+        background-color: #03aca5; } }
+
+.form-registration {
+  background-color: #f0fdff; }
+  @media screen and (max-width: 480px) {
+    .form-registration {
+      background-color: #fff; } }
+  .form-registration__agreement {
+    font-size: 14px; }
+    .form-registration__agreement a {
+      font-family: Circe-Bold;
+      color: #756b80; }
+  @media screen and (max-width: 480px) {
+    .form-registration__fields input {
+      background-color: #f0fdff; } }
+  .form-registration--color {
+    background-color: #f0fdff; }
+    @media screen and (max-width: 480px) {
+      .form-registration--color .form-registration__fields input {
+        background-color: #fff; } }
+
+input {
+  color: #756b80;
+  font-family: Circe; }
+
+:focus::-webkit-input-placeholder {
+  color: transparent; }
+
+:focus::-moz-placeholder {
+  color: transparent; }
+
+:focus:-moz-placeholder {
+  color: transparent; }
+
+:focus:-ms-input-placeholder {
+  color: transparent; }
+
+.footer {
+  color: #fff;
+  background-image: linear-gradient(to right, #02b4bd, #03bcbd, #03bfbd, #03bdbd); }
+  .footer__block:last-child {
+    font-size: 13px; }
+    .footer__block:last-child a {
+      color: #fff; }
+  .footer__title {
+    font-size: 22px; }
+    @media screen and (max-width: 1366px) {
+      .footer__title {
+        font-size: 18px; } }
+
+.footer-menu__link {
+  color: #fff;
+  font-size: 18px; }
+
+.socials p {
+  font-size: 14px; }
+
+.article-types__link {
+  background-color: #f0fdff;
+  color: #756b80; }
+  .article-types__link.active, .article-types__link:hover {
+    background-color: #03c5bd;
+    color: #fff; }
+
+.article__item {
+  color: #756b80; }
+
+.service__name {
+  border-left: 2px solid #03c5bd; }
+
+.service__link {
+  color: #756b80; }
+
+.information {
+  background-color: #f0fdff; }
+  .information p span {
+    font-family: Circe-Bold; }
+
+.prices--color {
+  background-color: #f0fdff; }
+
+.prices__name {
+  border-left: 2px solid #03c5bd; }
+  @media screen and (max-width: 768px) {
+    .prices__name h2 {
+      font-size: 18px; } }
+  @media screen and (max-width: 480px) {
+    .prices__name h2 {
+      font-size: 16px; } }
+
+.prices__inside-item {
+  border-bottom: 2px solid #d3eaee; }
+  @media screen and (max-width: 480px) {
+    .prices__inside-item span {
+      font-size: 14px; } }
+  @media screen and (max-width: 480px) {
+    .prices__inside-item a {
+      color: #776d82; } }
+
+.contacts-information {
+  background-color: #f0fdff; }
+  .contacts-information__left {
+    font-size: 18px; }
+    @media screen and (max-width: 480px) {
+      .contacts-information__left {
+        font-size: 14px; } }
+    .contacts-information__left p span {
+      font-family: Circe-Bold; }
+    .contacts-information__left p a {
+      text-decoration: none;
+      color: #756b80; }
+  .contacts-information__title {
+    font-family: Circe-Bold; }
+    .contacts-information__title span {
+      font-family: Circe; }
+
+.form-registration--inverse {
+  background-color: #fff; }
+  .form-registration--inverse input {
+    background-color: #f0fdff; }
+  .form-registration--inverse textarea {
+    background-color: #f0fdff;
+    font-family: Circe;
+    color: #756b80; }
+
+@media screen and (max-width: 768px) {
+  .article-intro__text {
+    background-color: #f0fdff; } }
+
+.article-intro__title {
+  color: #fff;
+  font-size: 48px; }
+  @media screen and (max-width: 1024px) {
+    .article-intro__title {
+      font-size: 36px; } }
+  @media screen and (max-width: 768px) {
+    .article-intro__title {
+      color: #756b80; } }
+  @media screen and (max-width: 480px) {
+    .article-intro__title {
+      font-size: 24px; } }
+
+.article-intro__desc {
+  font-size: 24px;
+  color: #fff; }
+
+.article-more p {
+  font-size: 14px; }
+
+@media screen and (max-width: 480px) {
+  .article-more__title {
+    font-size: 20px; } }
+
+.share {
+  background-color: #f0fdff; }
+  .share--transparent {
+    background-color: transparent; }
+  .share__title {
+    font-size: 30px; }
+    @media screen and (max-width: 480px) {
+      .share__title {
+        font-size: 20px; } }
+
+.subtitle {
+  font-size: 30px; }
+  @media screen and (max-width: 480px) {
+    .subtitle {
+      font-size: 24px; } }
+
+.services-more__right .prices__name h2 {
+  font-size: 18px; }
+
+.services-more__right .prices__inside-link {
+  color: #756b80; }
+  .services-more__right .prices__inside-link.active {
+    font-family: Circe-Bold; }
+
+@media screen and (max-width: 480px) {
+  .services-more__title {
+    background-color: #f0fdff; } }
+
+.services-more__title span {
+  font-size: 36px; }
+  @media screen and (max-width: 480px) {
+    .services-more__title span {
+      font-size: 20px; } }
+
+.services-more P span {
+  font-family: Circe-Bold; }
+
+.specialist .specialists__more {
+  color: #fff; }
+
+.requirements {
+  background-color: #f0fdff; }
+  .requirements__item {
+    font-size: 14px; }
+
+.specialist-info.white {
+  color: #fff; }
+  @media screen and (max-width: 480px) {
+    .specialist-info.white {
+      color: #776d82; } }
+  .specialist-info.white .divide-line {
+    border: 2px solid #fff; }
+    @media screen and (max-width: 480px) {
+      .specialist-info.white .divide-line {
+        border: 2px solid #03c4bd; } }
+
+.specialist-info__name {
+  font-size: 44px;
+  text-shadow: 1px 1px 1px #000; }
+  @media screen and (max-width: 600px) {
+    .specialist-info__name {
+      font-size: 35px; } }
+  @media screen and (max-width: 480px) {
+    .specialist-info__name {
+      text-shadow: none;
+      font-size: 24px; }
+      .specialist-info__name span {
+        color: #03c5bd; } }
+
+.specialist-info__title {
+  font-size: 24px; }
+  @media screen and (max-width: 480px) {
+    .specialist-info__title {
+      font-size: 18px; } }
+
+.specialist-info__profile span a {
+  color: #756b80;
+  font-family: Circe-Bold; }
+
+.documents__title {
+  font-size: 24px; }
+  @media screen and (max-width: 768px) {
+    .documents__title {
+      font-size: 18px; } }
+  @media screen and (max-width: 480px) {
+    .documents__title {
+      font-size: 14px; } }
+
+@media screen and (max-width: 480px) {
+  .documents__links a {
+    font-size: 11px; } }

@@ -10,19 +10,19 @@
         <link rel="stylesheet" href="css/onepage-scroll.css">
         <link rel="stylesheet" href="css/animate.min.css">
         <link type="text/css" rel="stylesheet" href="css/lightslider.min.css">
-        <link href="css/styles.css" type="text/css" rel="stylesheet" /> 
-        <link href="css/template_styles.css" type="text/css" rel="stylesheet" /> 
+        <link href="styles.css" type="text/css" rel="stylesheet" /> 
+        <link href="template_styles.css" type="text/css" rel="stylesheet" /> 
     </head>
     <body>
         <div class="wrapper">
             <!--Приветствие-->
-            <section class="section first-section" style="background: url('temp/background.jpg'); background-size: cover; background-repeat: no-repeat;">
+            <section class="section first-section" style="background: url('temp/background.jpg'); background-size: cover; z-index: 1; background-repeat: no-repeat;">
                 <div class="container">
-                    <header id="header">
+                    <header id="header" class="header">
                         <div class="header__left">
                             <div class="logo">
                                 <a href="index.html" class="logo__link">
-                                    <img src="images/logo.png" alt="">
+                                    <div class="logo__icon"></div>
                                 </a>
                             </div>
                         </div>
@@ -34,10 +34,12 @@
                                 </a>
                                 <p class="contacts__slogan">Болят зубы? Звоните!</p>
                                 <div class="contacts__phone">
-                                    <span>+7 (4212)</span>
-                                    <a href="tel:+74212244797">24-47-97</a>
-                                    <span>/</span>
-                                    <a href="tel:+74212428202">42-82-02</a>
+                                    <span>(4212)</span>
+                                    <div class="contacts__numbers">
+                                        <a href="tel:+74212244797">24-47-97</a>
+                                        <span>/</span>
+                                        <a href="tel:+74212428202">42-82-02</a>
+                                    </div>
                                 </div>
                                 <hr>
                                 <p class="contacts__address">г. Хабаровск, ул. Ленина, 56</p>
@@ -62,8 +64,11 @@
                             <li class="intro__item"><span>составление плана и стоимости лечения</span></li>
                         </ul>
                         <div class="buttons">
-                            <a href="javascript:void(0)" class="btn">Записаться</a>
-                            <a href="javascript:void(0)" class="btn btn--inverse">Рассчитать стоимость</a>
+                            <div class="buttons__wrap">
+                                <a href="javascript:void(0)" class="btn btn-sign-up" data-src="#sign-up">Записаться</a>
+                                <a href="javascript:void(0)" class="btn">Записаться по WhatsApp</a>
+                            </div>
+                            <a href="javascript:void(0)" class="btn btn--inverse btn-calculate-price" data-src="#calculate-price">Рассчитать стоимость</a>
                         </div>
                     </div>
                     <div class="notice">
@@ -94,7 +99,7 @@
                 </div>
                 <div class="advantages">
                     <div class="text-block">
-                        <h2 class="section-title">Стоматология "Все свои<span> рядом</span>"</h2>
+                        <h2 class="section-title">Стоматология<br>"Все свои<span> рядом</span>"</h2>
                         <hr class="divide-line divide-line--gradient">
                         <p>
                             Наша клиника для тебя. Мы знаем, что у тебя вечно не хватает времени для себя,
@@ -103,7 +108,6 @@
                             когда нужно будет снова придти к нам в гости. А еще мы создали все условия,
                             чтобы это было доступно и легко!
                         </p>
-                        <a href="" class="btn btn--inverse">Преимущества</a>
                     </div>
                     <div class="advantages__wrap">
                         <div class="advantages__item">
@@ -152,17 +156,6 @@
                                 <img src="images/logo-horizontal-color.png" alt="">
                             </a>
                         </div>
-                        <div class="contacts contacts--color">
-                            <p class="contacts__slogan">Болят зубы? Звоните!</p>
-                            <div class="contacts__phone">
-                                <span>+7 (4212)</span>
-                                <a href="tel:+74212244797">24-47-97</a>
-                                <span>/</span>
-                                <a href="tel:+74212428202">42-82-02</a>
-                            </div>
-                            <hr>
-                            <p class="contacts__address">г. Хабаровск, ул. Ленина, 56</p>
-                        </div>
                         <a href="javascript:void(0)" class="menu-link menu-link--color" data-src="#modal-window">
                             <span>Меню</span>
                             <div class="icon nav-icon-2">
@@ -174,7 +167,7 @@
                     </div>
                     
                     <div class="text-block">
-                        <h2 class="section-title">Стоматология "Все свои<span> рядом</span>"</h2>
+                        <h2 class="section-title">Стоматология<br>"Все свои<span> рядом</span>"</h2>
                         <hr class="divide-line divide-line--gradient">
                         <p>
                             Мы долго изучали, почему люди боятся стоматологов, и нашли, как исправить это!
@@ -188,63 +181,63 @@
                     <div class="services__top">
                         <a href="javascript:void(0)" class="btn btn--services">Все услуги</a>
                         <div class="arrows">
-                            <div class="arrow arrow-prev-color"></div>
-                            <div class="arrow arrow-next-color"></div>
+                            <div class="arrow arrow-prev-color arrow-prev-color-services"></div>
+                            <div class="arrow arrow-next-color arrow-next-color-services"></div>
                         </div>
                     </div>
                     <ul id="lightSlider2">
                         <li>
-                            <a href="services.html" class="services__item">
+                            <a href="services.html" class="services__item" onmouseover="document.getElementById('service1').style.backgroundPositionY='-104px';" onmouseout="document.getElementById('service1').style.backgroundPositionY='0px';">
                                 <img class="services__img" src="temp/services.jpg" alt="Лечение зубов">
-                                <div class="services__icon treatment"></div>
+                                <div class="services__icon treatment" id="service1" style="background: url('images/services-icon1.png');"></div>
                                 <p class="services__title">Лечение зубов и десен</p>
                                 <hr class="divide-line divide-line--gradient divide-line--services">
                             </a>
                         </li>
                         <li>
-                            <a href="services.html" class="services__item">
+                            <a href="services.html" class="services__item" onmouseover="document.getElementById('service2').style.backgroundPositionY='-86px';" onmouseout="document.getElementById('service2').style.backgroundPositionY='0px';">
                                 <img class="services__img" src="temp/services.jpg" alt="Гигиена и профилактика">
-                                <div class="services__icon hygiene"></div>
+                                <div class="services__icon hygiene" id="service2" style="background: url('images/services-icon2.png');"></div>
                                 <p class="services__title">Гигиена и профилактика</p>
                                 <hr class="divide-line divide-line--gradient divide-line--services">
                             </a>
                         </li>
                         <li>
-                            <a href="services.html" class="services__item">
+                            <a href="services.html" class="services__item" onmouseover="document.getElementById('service3').style.backgroundPositionY='-85px';" onmouseout="document.getElementById('service3').style.backgroundPositionY='0px';">
                                 <img class="services__img" src="temp/services.jpg" alt="Хирургия и имплантация">
-                                <div class="services__icon surgery"></div>
+                                <div class="services__icon surgery" id="service3" style="background: url('images/services-icon3.png');"></div>
                                 <p class="services__title">Хирургия и имплантация</p>
                                 <hr class="divide-line divide-line--gradient divide-line--services">
                             </a>
                         </li>
                         <li>
-                            <a href="services.html" class="services__item">
+                            <a href="services.html" class="services__item" onmouseover="document.getElementById('service4').style.backgroundPositionY='-104px';" onmouseout="document.getElementById('service4').style.backgroundPositionY='0px';">
                                 <img class="services__img" src="temp/services.jpg" alt="Эстетическая стоматология">
-                                <div class="services__icon treatment"></div>
+                                <div class="services__icon treatment" id="service4" style="background: url('images/services-icon1.png');"></div>
                                 <p class="services__title">Эстетическая стоматология</p>
                                 <hr class="divide-line divide-line--gradient divide-line--services">
                             </a>
                         </li>
                         <li>
-                            <a href="services.html" class="services__item">
+                            <a href="services.html" class="services__item" onmouseover="document.getElementById('service5').style.backgroundPositionY='-104px';" onmouseout="document.getElementById('service5').style.backgroundPositionY='0px';">
                                 <img class="services__img" src="temp/services.jpg" alt="Ортодонтия">
-                                <div class="services__icon treatment"></div>
+                                <div class="services__icon treatment" id="service5" style="background: url('images/services-icon1.png');"></div>
                                 <p class="services__title">Ортодонтия<br><span>(исправление прикуса)</span></p>
                                 <hr class="divide-line divide-line--gradient divide-line--services">
                             </a>
                         </li>
                         <li>
-                            <a href="services.html" class="services__item">
+                            <a href="services.html" class="services__item" onmouseover="document.getElementById('service6').style.backgroundPositionY='-104px';" onmouseout="document.getElementById('service6').style.backgroundPositionY='0px';">
                                 <img class="services__img" src="temp/services.jpg" alt="Диагностика">
-                                <div class="services__icon treatment"></div>
+                                <div class="services__icon treatment" id="service6" style="background: url('images/services-icon1.png');"></div>
                                 <p class="services__title">Диагностика</p>
                                 <hr class="divide-line divide-line--gradient divide-line--services">
                             </a>
                         </li>
                         <li>
-                            <a href="services.html" class="services__item">
+                            <a href="services.html" class="services__item" onmouseover="document.getElementById('service7').style.backgroundPositionY='-104px';" onmouseout="document.getElementById('example').style.backgroundPositionY='0px';"> 
                                 <img class="services__img" src="temp/services.jpg" alt="Лечение зубов">
-                                <div class="services__icon treatment"></div>
+                                <div class="services__icon treatment" id="service7" style="background: url('images/services-icon1.png');"></div>
                                 <p class="services__title">Лечение зубов и десен</p>
                                 <hr class="divide-line divide-line--gradient divide-line--services">
                             </a>
@@ -283,7 +276,7 @@
                         </div>
                     </a>
                     <div class="text-block">
-                        <h2 class="section-title">Команда стоматологии "Все свои<span> рядом</span>"</h2>
+                        <h2 class="section-title">Команда стоматологии<br>"Все свои<span> рядом</span>"</h2>
                         <hr class="divide-line divide-line--gradient">
                     </div>
                     <div id="specialists-desktop"></div>
@@ -321,7 +314,7 @@
                         </div>
                     </a>
                     <div class="text-block">
-                        <h2 class="section-title">Отзывы о стоматологии "Все свои<span> рядом</span>"</h2>
+                        <h2 class="section-title">Отзывы о стоматологии<br> "Все свои<span> рядом</span>"</h2>
                         <hr class="divide-line divide-line--gradient">
                     </div>
                     <div class="reviews">
@@ -372,20 +365,24 @@
                             <span>vse_svoi_khv</span>
                         </a>
                     </div> 
+                    <div class="insta-wrap">
+                        <a href="https://instagram.com" class="btn">Перейти в профиль</a>
+                        <p>Актуальное фото работ можно посмотреть в instagram</p>
+                    </div>
                 </div>
                 <div class="instagram">
-                    <a href="#" class="instagram__link" style="background-image: url('temp/post1.jpg')"></a>
-                    <a href="#" class="instagram__link" style="background-image: url('temp/post2.jpg')"></a>
-                    <a href="#" class="instagram__link" style="background-image: url('temp/post3.jpg')"></a>
-                    <a href="#" class="instagram__link" style="background-image: url('temp/post4.jpg')"></a>
-                    <a href="#" class="instagram__link" style="background-image: url('temp/post5.jpg')"></a>
-                    <a href="#" class="instagram__link" style="background-image: url('temp/post6.jpg')"></a>
+                    <a data-proportion-h="1" href="#" class="instagram__link" style="background-image: url('temp/post1.jpg')"></a>
+                    <a data-proportion-h="1" href="#" class="instagram__link" style="background-image: url('temp/post2.jpg')"></a>
+                    <a data-proportion-h="1" href="#" class="instagram__link" style="background-image: url('temp/post3.jpg')"></a>
+                    <a data-proportion-h="1" href="#" class="instagram__link" style="background-image: url('temp/post4.jpg')"></a>
+                    <a data-proportion-h="1" href="#" class="instagram__link" style="background-image: url('temp/post5.jpg')"></a>
+                    <a data-proportion-h="1" href="#" class="instagram__link" style="background-image: url('temp/post6.jpg')"></a>
                 </div>
             </section>
-            <!--Инстаграм и карта-->
+            <!--Карта-->
             <section class="section" style="background: #f0fdff">
                 <div class="map">
-                    <div class="contacts-form">
+                    <div class="contacts-form contacts-form--main">
                         <div class="logo">
                             <a href="index.html" class="logo__link">
                                 <img src="images/logo-color.png" alt="">
@@ -397,19 +394,18 @@
                             <hr class="divide-line">
                             <div class="contacts contacts--color">
                                 <p class="contacts__slogan">Болят зубы? Звоните!</p>
-                                <div class="contacts__phone">
-                                    <span>+7 (4212)</span>
+                                <div class="contacts__phone contacts__phone--column">
+                                    <span class="rotate">(4212)</span>
                                     <div class="contacts__numbers">
                                         <a href="tel:+74212244797">24-47-97</a>
-                                        <span>/</span>
+                                        <br>
                                         <a href="tel:+74212428202">42-82-02</a>
                                     </div>
                                 </div>
-                                <div class="contacts__phone">
-                                    <span>whats app:</span>
-                                    <a href="tel:89098244401">8 909 824 44 01</a>
+                                <div class="contacts__phone contacts__phone--column">
+                                    <img src="images/whatsapp.png" alt="WhatsApp" class="contacts__icon">
+                                    <a href="tel:89141594797">8 914 159 47 97</a>
                                 </div>
-                                <hr>
                                 <p class="contacts__address">г. Хабаровск, ул. Ленина, 56</p>
                             </div>
                             <p class="contacts-form__notice">
@@ -418,12 +414,12 @@
                             <div class="creator">
                                 Сайт сделан в <a href="https://r-pl.ru/" target="_blank">Решениях</a>
                             </div>
-                            <a href="javascript:void(0)" class="btn btn--contacts-form">Записаться</a>
+                            <a href="javascript:void(0)" class="btn btn--contacts-form btn-sign-up" data-src="#sign-up">Записаться</a>
                         </div>
                     </div>
                     <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5f679a65c146e1687491eb7a69654b0a36c6a035a4504bfbaf131e9c36add76c&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;"></script>
                 </div>
-                <footer class="footer footer--main-page">
+                <footer class="footer--main-page">
                     <div class="footer__top">
                         <div class="socials">
                             <p>Мы в социальных сетях:</p>
@@ -444,41 +440,107 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="footer__bottom"></div>
+                    <div class="footer__bottom">
+                        <noindex>
+                            <p class="contacts-form__notice">
+                                &copy; 2018 Стоматология "Все свои". Все права защищены.<br>ООО "ХЗЛТ" ОГРН 1122709011111
+                            </p>
+                            <div class="creator">
+                                Сайт сделан в <a href="https://r-pl.ru/" target="_blank">Решениях</a>
+                            </div>
+                        </noindex>
+                    </div>
                 </footer>
             </section>
             <!--Меню во всплывающем окне-->
             <div class="modal-window" id="modal-window">
-                <div class="menu">
-                    <div class="menu__left">
-                        <a href="javascript:void(0)" class="btn">Записаться</a>
-                        <a href="javascript:void(0)" class="btn">Рассчитать стоимость</a>
+                <div class="modal-menu">
+                    <div class="modal-menu__left">
+                        <a href="javascript:void(0)" class="btn btn-sign-up" data-src="#sign-up">Записаться</a>
+                        <a href="javascript:void(0)" class="btn">Записаться по WhatsApp</a>
+                        <a href="javascript:void(0)" class="btn btn-calculate-price"data-src="#calculate-price">Рассчитать стоимость</a>
                     </div>
-                    <div class="menu__right">
-                        <ul class="menu__list">
-                            <li class="menu__item"><a href="index.html" class="menu__link">Главная</a></li>
-                            <li class="menu__item"><a href="services.html" class="menu__link">Услуги</a></li>
-                            <li class="menu__item"><a href="prices.html" class="menu__link">Стоимость</a></li>
-                            <li class="menu__item"><a href="articles.html" class="menu__link">Статьи</a></li>
-                            <li class="menu__item"><a href="guarantee.html" class="menu__link">Гарантии</a></li>
-                            <li class="menu__item"><a href="specialists.html" class="menu__link">Врачи</a></li>
-                            <li class="menu__item"><a href="contacts.html" class="menu__link">Контакты</a></li>
+                    <div class="modal-menu__right">
+                        <ul class="modal-menu__list">
+                            <li class="modal-menu__item"><a href="index.html" class="modal-menu__link">Главная</a></li>
+                            <li class="modal-menu__item"><a href="services.html" class="modal-menu__link">Услуги</a></li>
+                            <li class="modal-menu__item"><a href="prices.html" class="modal-menu__link">Стоимость</a></li>
+                            <li class="modal-menu__item"><a href="articles.html" class="modal-menu__link">Статьи</a></li>
+                            <li class="modal-menu__item"><a href="guarantee.html" class="modal-menu__link">Гарантии</a></li>
+                            <li class="modal-menu__item"><a href="specialists.html" class="modal-menu__link">Врачи</a></li>
+                            <li class="modal-menu__item"><a href="contacts.html" class="modal-menu__link">Контакты</a></li>
                         </ul>
                         <div class="contacts contacts--color">
                             <p class="contacts__slogan">Болят зубы? Звоните!</p>
                             <div class="contacts__phone">
-                                <span>+7 (4212)</span>
-                                <a href="tel:+74212244797">24-47-97</a>
-                                <span>/</span>
-                                <a href="tel:+74212428202">42-82-02</a>
+                                <span class="rotate">(4212)</span>
+                                <div class="contacts__numbers">
+                                    <a href="tel:+74212244797">24-47-97</a>
+                                    <a href="tel:+74212428202">42-82-02</a>
+                                </div>
                             </div>
-                            <hr>
+                            <div class="contacts__phone">
+                                <img src="images/whatsapp.png" alt="WhatsApp" class="contacts__icon contacts__icon--main">
+                                <a href="tel:+79098244401">8 909 824 44 01</a>
+                            </div>
                             <p class="contacts__address">г. Хабаровск, ул. Ленина, 56</p>
                         </div>
                     </div>
-                    <div class="close">
+                    <div class="close" onclick="parent.$.fancybox.close()">
                         <img src="images/close.png" alt="Закрыть">
                     </div>
+                    <div class="modal-window__addition">
+                        <p class="modal-window__notice">
+                            &copy; 2018 Стоматология "Все свои". Все права защищены.<br>ООО "ХЗЛТ" ОГРН 1122709011111
+                        </p>
+                        <div class="modal-window__creator">
+                            Сайт сделан в <a href="https://r-pl.ru/" target="_blank">Решениях</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Записаться-->
+            <div class="free-consultation" id="sign-up">
+                <img src="images/plant1.png" alt="" class="free-consultation__img">
+                <h2 class="free-consultation__title">Записаться на прием</h2>
+                <hr class="divide-line">
+                <form action="" class="free-consultation__form">
+                    <div class="fields">
+                        <input type="text" placeholder="Ваше имя">
+                        <input type="text" placeholder="Ваш номер телефона">
+                        <input type="text" placeholder="Ваш e-mail">
+                    </div>
+                    <div class="free-consultation__bottom free-consultation__bottom--column">
+                        <p>
+                            Даю согласие на обработку персональных данных в соответствии с
+                            <a href="">"Политикой в области обработки и защиты персональных данных"</a>
+                        </p>
+                        <input type="submit" value="Отправить" class="btn">
+                    </div>
+                </form>
+                <div class="close" onclick="parent.$.fancybox.close()">
+                    <img src="images/close.png" alt="Закрыть">
+                </div>
+            </div>
+            <!--Рассчитать стоимость-->
+            <div class="free-consultation" id="calculate-price">
+                <img src="images/plant1.png" alt="" class="free-consultation__img">
+                <h2 class="free-consultation__title">Рассчитать стоимость лечения</h2>
+                <hr class="divide-line">
+                <form action="" class="free-consultation__form">
+                    <div class="fields">
+                        <input type="text" placeholder="Ваше имя">
+                        <input type="text" placeholder="Ваш номер телефона">
+                        <input type="submit" value="Рассчитать стоимость" class="btn">
+                    </div>
+                    <div class="free-consultation__bottom free-consultation__bottom--column">
+                        <p>
+                            Нажимая кнопку "Рассчитать стомость", Вы даете согласие на обработку Ваших персональных данных
+                        </p>
+                    </div>
+                </form>
+                <div class="close" onclick="parent.$.fancybox.close()">
+                    <img src="images/close.png" alt="Закрыть">
                 </div>
             </div>
         </div>
@@ -488,6 +550,8 @@
         <script src="js/jquery.viewportchecker.min.js"></script>
         <script src="js/jquery.onepage-scroll.min.js"></script>
         <script src="js/onepage-scroll.js"></script>
+        <script src="js/stickjaw.min.js" type="text/javascript"></script>
+       
         <!--Модальные окна-->
         <script src="js/jquery.fancybox.min.js"></script>
         <script src="js/main.js"></script>
